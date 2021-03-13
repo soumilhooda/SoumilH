@@ -1,11 +1,6 @@
 ## (Closed temporarily.)
 
-
-
-### Current Endeavours
-
-Currently working on NWP models and API based Blockchain technology. Or atleast trying to!
-
+Currently trying a grip on API based Blockchain technology!
 
 Last interesting read -
 
