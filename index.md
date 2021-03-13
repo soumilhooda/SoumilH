@@ -1,5 +1,5 @@
 
-Currently away trying a grip on API based Blockchain technology and a few statistical models! 
+Currently away trying a grip on optical computing, API based Blockchain technology and a few statistical models! 
 
 
 
