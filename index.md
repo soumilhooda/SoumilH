@@ -1,6 +1,7 @@
 
+Currently away trying a grip on API based Blockchain technology and a few statistical models! 
 
-Currently trying a grip on API based Blockchain technology!
+
 
 Last interesting read -
 
