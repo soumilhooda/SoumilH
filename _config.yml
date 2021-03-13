@@ -2,6 +2,6 @@ theme: jekyll-theme-cayman
 title: Soumil Hooda
 github:
   is_project_page: false
-site-footer-credits:
+site_footer_credits:
   display: none
  
