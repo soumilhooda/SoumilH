@@ -2,7 +2,7 @@ theme: jekyll-theme-cayman
 title: Soumil Hooda
 github:
   is_project_page: false
-footer_content: © Copyright Soumil Hooda 2021. Distributed by an GPLv3.
+footer: © Copyright Soumil Hooda 2021. Distributed by an GPLv3.
 
   
 
