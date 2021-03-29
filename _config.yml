@@ -1,7 +1,9 @@
 theme: jekyll-theme-cayman
 name: Soumil Hooda
 title: Soumil Hooda
-
+plugins:
+  -jekyll-sitemap
+  
 github:
   is_project_page: false
 
