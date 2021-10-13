@@ -1,6 +1,7 @@
 theme: jekyll-theme-cayman
 name: Soumil Hooda
 title: Soumil Hooda
+permalink: pretty
 
 plugins:
   - jekyll-sitemap
