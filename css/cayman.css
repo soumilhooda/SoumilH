@@ -15,6 +15,7 @@ a {
   a:hover {
     text-decoration: underline; }
 
+
 .btn {
   display: inline-block;
   margin-bottom: 1rem;
@@ -53,7 +54,15 @@ a {
   color: #fff;
   text-align: center;
   background-color: #159957;
-  background-image: linear-gradient(120deg, #0F2027, #203A43, #2C5364); }
+  background-image: linear-gradient(120deg, #0F2027, #203A43, #2C5364);
+  animation: waves 5s ease-in-out alternate infinite;
+}
+@keyframes waves{
+  to{
+  transform: translateY(-50%) rotate(540deg); 
+  }
+}
+
   @media screen and (min-width: 64em) {
     .page-header {
       padding: 5rem 6rem; } }
