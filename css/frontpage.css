@@ -1,11 +1,13 @@
 
 h1 {
   font-size: 72px;
-  background: -webkit-linear-gradient(#eee, #333);
+  background: -webkit-linear-gradient(120deg, #0F2027, #203A43, #2C5364);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 body {
   text-align: left;
+  margin-top: 25rem;
+  margin-bottom: 25rem;
  }
