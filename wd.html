@@ -12,26 +12,52 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
+            background-color: #f0f0f0; /* Background color for the entire page */
         }
         .content {
             max-width: 800px;
             margin: auto;
+            background-color: #ffffff; /* Background color for the content area */
+            padding: 20px; /* Padding inside the content area */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Drop shadow for a subtle effect */
+            border-radius: 8px; /* Rounded corners for the content area */
         }
         .name {
             font-size: 24px;
             font-weight: bold;
             text-align: center;
+            margin-bottom: 20px; /* Spacing below the name */
         }
         .blog-content {
             text-align: justify;
         }
         .pdf-container {
             text-align: center; /* Center aligns the content horizontally */
-            margin-top: 20px; /* Adjust the top margin as needed */
+            margin-top: 30px; /* Adjust the top margin as needed */
+            margin-bottom: 30px; /* Adjust the bottom margin as needed */
         }
         .pdf-container embed {
-            width: 50%; /* Set the width of the embed element */
-            height: 300px; /* Set the height of the embed element */
+            width: 100%; /* Set the width of the embed element to 100% */
+            height: 600px; /* Set a fixed height for the PDF viewer */
+            border: 2px solid #cccccc; /* Light gray border around the PDF */
+            border-radius: 8px; /* Rounded corners for the border */
+            box-shadow: 0 0 8px rgba(0,0,0,0.1); /* Drop shadow for a subtle effect */
+        }
+        .image-container {
+            margin-bottom: 20px; /* Space between each image container */
+        }
+        .image-container img {
+            width: 100%; /* Ensure images fill their container */
+            display: block; /* Remove default image spacing */
+            border: 2px solid #cccccc; /* Light gray border around images */
+            border-radius: 8px; /* Rounded corners for the border */
+            box-shadow: 0 0 8px rgba(0,0,0,0.1); /* Drop shadow for a subtle effect */
+            margin-bottom: 8px; /* Space below each image */
+        }
+        .image-container p {
+            text-align: center; /* Center align captions */
+            font-style: italic; /* Italicize captions */
+            margin-top: 5px; /* Space above captions */
         }
     </style>
 </head>
@@ -68,6 +94,11 @@
             One evening, after returning from the gym, I discussed with Shubham my idea to collaborate on modeling temperature-based derivatives. He was equally enthusiastic, and we embarked on our journey by researching online materials, identifying areas for improvement, and initiating coding efforts. While Shubham was not proficient in coding, I took on extensive coding responsibilities, running experiments to price and forecast models. Data cleaning became a major focus, encompassing diverse datasets which I will detail shortly. At this stage, I must admit that I had little practical understanding of finance. Despite my interest, I lacked knowledge about F&O markets and hedge mechanisms. Nevertheless, we persevered, learning from each other along the way.
             </p>
 
+            <div class="image-container">
+                <img src=“images/working”.jpg alt="Image Description">
+                <p>Shubham Sharma working on our Ornstein-Uhlenbeck Process. Yes, our hostel rooms used to be this messy. Sneak peak the gym bag hanging on the door from the night we started.</p>
+            </div>
+
             <p>
             After a week of intense daily shifts lasting 17 hours, we completed our first joint project: designing HDD/CDD contracts tailored for summer and winter seasons across eight Indian cities. Leveraging my prior internship experiences, our model achieved exceptional accuracy in forecasting temperature profiles. Shubham's innovative approach to reference temperature value modeling further enhanced our pricing accuracy compared to existing industry products.
             </p>
@@ -76,13 +107,29 @@
             At this point, some friends nearby took note and grew interested in our work. This was when we delved deeply into industry research and discovered a significant gap in such products within India—a promising market opportunity. Serendipitously, on March 1, 2024, SEBI regulated weather-based financial products, legitimizing our efforts. We expanded our team to include Kunal Bansal (BITS Pilani Hyderabad, Comp Sci Eng + Chemistry (Batch of 2025)), and embarked on collecting data for more ambitious projects, aiming to create derivatives for wind and rainfall. We also identified several shortcomings in our existing products and sought to address them through advanced swaps and N-dimensional quantos. Our work involved meticulous data analysis across various sectors, including agriculture, energy, and transportation. We processed extensive datasets ranging from trading rates and crop water requirements to commodity spot prices, electricity consumption, renewable energy production, and coal production and much, much more. The demanding nature of our work required high temporal resolution and rigorous analysis of industry trends and data patterns. During Kunal's absence due to personal commitments, Shubham and I pulled multiple 23-hour shifts to maintain momentum.
             </p>
 
+            <div class="image-container">
+                <img src=“images/randommodels”.jpg alt="Image Description">
+                <p>This is what our typical discussion boards would look like. Loads of model architectures and data sheets stuck above.</p>
+            </div>
+
+
             <p>
             Subsequently, we welcomed Utkarsh Agarwal (BITS Pilani Hyderabad, Comp Sci Eng + Physics (Batch of 2025)) and Chaitanya Dandwate (BITS Pilani Hyderabad, Chemical Eng (Batch of 2024)) to our team. Utkarsh brought legal acumen, while Chaitanya provided valuable consultancy based on his internship at Deutsche Bank. Together, we began developing alternatives to the PMFBY and WBCIS insurance schemes in India. We built a lot of products, some survived our stress testing and some did not. 
             </p>
 
+            <div class="image-container">
+                <img src=“images/team”.jpg alt="Image Description">
+                <p>Our almost complete team, with honorary team member Hrushikesh Reddy but missing Chaitanya Dandwate.</p>
+            </div>
+
+
             <p>
             I engaged in extensive discussions with small warehouse owners, farmers, and medium-scale renewable energy companies to understand their needs better. Our products underwent rigorous stress testing, and I developed detailed extreme-case testing code. We compiled comprehensive analysis decks and pitched our findings to investment banks, insurance companies, and boutique risk management firms. Despite our initial successes, our team faced challenges as individual responsibilities diverged. Engaging with industry professionals—underwriters, chief officers, and product directors—revealed the complexities of scaling our venture without robust legal support and substantial capital investment. Nonetheless, I remain committed to completing manuscripts on our research, intending to make our findings and methodologies open-source. I would like to thank the following people for having very detailed interactions with me, Marcel Reif at Munich Re, Niraj Shah at Munich Re, Devanshu Sood at JPMorganChase, Ralph Renner at Parameter Climate and Vivek Pawale at Parameter Climate. 
             </p>
+
+            <div class="pdf-container">
+                <embed src="pdf/MiniDeck.pdf" type="application/pdf" />
+            </div>
 
             <p>
             The semester-long experience was transformative. It encompassed research, market analysis, product development, team-building, pitching, iterative improvements, and more. Our early steps toward registering our venture, Dyaus Investments, and discussions with legal student friends at GNLU reflected our determination to pursue entrepreneurship. Many around me inquired about our progress and sought to learn from our journey, marking the beginning of my potential entrepreneurial path.
@@ -92,10 +139,7 @@
             Currently I am interning at Texas Instruments as a Digital Intern. I have moved away from my work on weather derivatives. I aim to leverage my EEE background and pursue further studies in Computer Engineering. My goal is to innovate and contribute meaningfully to the field in my future endeavors.
              </p>
 
-            <!-- Centered PDF Embed -->
-            <div class="pdf-container">
-                <embed src="pdf/MiniDeck.pdf" type="application/pdf" />
-            </div>
+
 
         </div>
 
@@ -106,4 +150,3 @@
     </div>
 </body>
 </html>
-
