@@ -25,13 +25,20 @@
         .blog-content {
             text-align: justify;
         }
+        .pdf-container {
+            text-align: center; /* Center aligns the content horizontally */
+            margin-top: 20px; /* Adjust the top margin as needed */
+        }
+        .pdf-container embed {
+            width: 50%; /* Set the width of the embed element */
+            height: 300px; /* Set the height of the embed element */
+        }
     </style>
 </head>
 <body>
     <div class="content">
         <p class="name">Venturing Beyond Weather: A Journey from Academia to Market Innovation</p>
         
-
         <div class="blog-content">
             <p>
             It all began in August 2023, a pivotal moment in my pursuit of degrees in Electrical and Electronics Engineering and Physics. At that juncture, I harbored aspirations for a PhD in machine learning, particularly focusing on fields such as Remote Sensing or Generalized Autonomy Models, which deeply engaged my academic interests.
@@ -84,8 +91,13 @@
             <p>
             Currently I am interning at Texas Instruments as a Digital Intern. I have moved away from my work on weather derivatives. I aim to leverage my EEE background and pursue further studies in Computer Engineering. My goal is to innovate and contribute meaningfully to the field in my future endeavors.
              </p>
-        </div>
 
+            <!-- Centered PDF Embed -->
+            <div class="pdf-container">
+                <embed src="pdf/MiniDeck.pdf" type="application/pdf" />
+            </div>
+
+        </div>
 
         <br>
         <p style="text-align:right;font-size:small;">
@@ -94,3 +106,4 @@
     </div>
 </body>
 </html>
+
