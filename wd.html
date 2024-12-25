@@ -1,3 +1,4 @@
+--- START OF FILE wd.html ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,21 +10,24 @@
     <style>
         /* Add any additional CSS styles specific to this page */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Lato', sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            background-color: #f0f0f0; /* Background color for the entire page */
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            color: #000;
         }
-        .content {
-            max-width: 800px;
-            margin: auto;
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
             background-color: #ffffff; /* Background color for the content area */
             padding: 20px; /* Padding inside the content area */
             box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Drop shadow for a subtle effect */
             border-radius: 8px; /* Rounded corners for the content area */
         }
         .name {
-            font-size: 24px;
+            font-size: 2.5rem;
             font-weight: bold;
             text-align: center;
             margin-bottom: 20px; /* Spacing below the name */
@@ -39,7 +43,7 @@
         .pdf-container embed {
             width: 100%; /* Set the width of the embed element to 100% */
             height: 600px; /* Set a fixed height for the PDF viewer */
-            border: 2px solid #cccccc; /* Light gray border around the PDF */
+            border: 2px solid #000; /* Light gray border around the PDF */
             border-radius: 8px; /* Rounded corners for the border */
             box-shadow: 0 0 8px rgba(0,0,0,0.1); /* Drop shadow for a subtle effect */
         }
@@ -49,22 +53,59 @@
         .image-container img {
             width: 100%; /* Ensure images fill their container */
             display: block; /* Remove default image spacing */
-            border: 2px solid #cccccc; /* Light gray border around images */
+            border: 2px solid #000; /* Light gray border around images */
             border-radius: 8px; /* Rounded corners for the border */
             box-shadow: 0 0 8px rgba(0,0,0,0.1); /* Drop shadow for a subtle effect */
             margin-bottom: 8px; /* Space below each image */
+             transition: transform 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.02);
         }
         .image-container p {
             text-align: center; /* Center align captions */
             font-style: italic; /* Italicize captions */
             margin-top: 5px; /* Space above captions */
         }
+           /* Layout Styles */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+             margin-bottom: 2rem;
+        }
+
+        .col {
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .col-7 {
+            width: 60%;
+        }
+
+        .col-5 {
+            width: 40%;
+        }
+        @media (max-width: 768px) {
+            .col-7, .col-5 {
+                width: 100%;
+            }
+        }
+         a {
+            color: #1a53a5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #000;
+        }
     </style>
 </head>
 <body>
-    <div class="content">
-        <p class="name">Indian Weather Risk Management: Academia to Market</p>
-        
+    <div class="container">
+        <h1 class="name">Indian Weather Risk Management: Academia to Market</h1>
+
         <div class="blog-content">
             <p>
             This journey has roots in August 2023, a pivotal moment in my pursuit of degrees in Electrical and Electronics Engineering and Physics. While seeking thesis opportunities for my final year, I encountered significant challenges. Most positions required candidates pursuing PhDs or were not open to international applicants. I had progressed in discussions with the Wenshan Wang group at CMU for developing multi-modal models for off-road driving vehicles, but the talks fell through, leaving me disheartened. I stopped applying after a few unsuccessful attempts.
