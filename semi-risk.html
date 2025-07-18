@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Output Swaps and Silicon Shields</title>
+    <link rel="stylesheet" href="stylesheet.css"/> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .name {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .blog-content {
+            text-align: justify;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        code, .math {
+            font-family: monospace;
+            background-color: #eef;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .pdf-container {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .pdf-container embed {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #cccccc;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 100%;
+            display: block;
+            border: 2px solid #cccccc;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+            margin-bottom: 8px;
+        }
+        .image-container p {
+            text-align: center;
+            font-style: italic;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="name">Output Swaps and Silicon Shields: A New Math for Fab Risk</div>
+        <div class="blog-content">
+            <p>Of all the spectres haunting the boardrooms of global industry, few, I think, are more terrifying than the silent halt of a semiconductor production line. This is a risk that defies traditional financial instruments. One cannot easily buy insurance against a geopolitical flare-up in the Taiwan Strait, nor can a standard derivative hedge the catastrophic financial fallout from a single contamination event at a Japanese memory plant. A case in point is the incident that vaporized at least 6.5 exabytes of flash storage from Western Digital and its partner Kioxia in 2022. Yet, within the colossal, nearly $730 trillion over-the-counter derivatives market, an arena dominated by interest rate and currency swaps, the intellectual machinery exists to price even these esoteric threats.</p>
+
+            <p>The pressing question for an age of renewed great-power competition is whether this machinery can be retooled. The semiconductor industry, the silicon foundation of the global economy, strikes me as uniquely vulnerable. Its geography is its destiny—and its greatest liability. That over 60% of all semiconductors by revenue, and more than 90% of the most advanced logic chips, are forged in Taiwan creates a point of failure so profound it dictates national industrial strategies from Washington to Beijing. This concentration, coupled with the staggering capital intensity of building a new fabrication plant—now costing upwards of $20 billion—means that risk is measured not just in market volatility, but in idle factories and broken supply chains.</p>
+            
+            <p><strong>Major Players and Chip Types:</strong> Leading fabs such as TSMC, Samsung Electronics, Intel, GlobalFoundries, and UMC dominate manufacturing across chip categories including commodity DRAM, NAND flash memory, microcontrollers (MCUs), application-specific integrated circuits (ASICs), and advanced system-on-chips (SoCs). While commodity chips make up the majority of wafer volume, it's worth noting that the highest-value nodes (sub-5nm logic) represent nearly 50% of global semiconductor capital expenditure despite their smaller volume share. This mismatch underscores the outsized economic impact of disruptions at leading-edge fabs.</p>
+
+            <p>For these predicaments, I believe a new class of financial instrument is needed: a parametric derivative tied not to the price of a stock, but to the physical output of the fabs themselves. Consider the "Regional Fab Output Swap," a contract that functions less like a traditional hedge and more like a sophisticated wager on operational continuity. Its architecture would be novel. The underlying asset would be a non-financial, independently verified "Semiconductor Output Index." This index would track the industrial pulse of a region like Hsinchu or Tainan, drawing on a stream of data from electricity and water consumption to satellite imagery monitoring logistics activity.</p>
+
+            <p>In this arrangement, a protection buyer—say, a German carmaker or an American cloud-computing giant—would pay a regular premium. In return, a protection seller, likely a reinsurer or a specialised Insurance-Linked Securities (ILS) fund, would agree to make a large, immediate payout if the index breaches a pre-agreed trigger. The trigger would be parametric: for instance, a 15% drop in the output index sustained for 20 consecutive days.</p>
+
+            <p>The elegance of such a structure, in my view, is its speed and objectivity. There are no lengthy, litigious claims processes to prove financial loss. The payout is automatic upon the index trigger being met, providing immediate liquidity to a firm suddenly unable to source the components vital to its own production. A carmaker, faced with a sudden MCU shortage from Taiwan, could use the multimillion-dollar payout to outbid competitors for scarce supply from other regions or to absorb the financial shock of a stalled assembly line.</p>
+
+            <p>An entire ecosystem would necessarily have to form around such an instrument. The sellers would be financial entities whose business is the sophisticated pricing of rare, high-impact events. Reinsurers, accustomed to modelling hurricanes and earthquakes, are the natural underwriters. They would be joined by hedge funds armed with the quantitative and geopolitical modelling expertise to calculate the precise premium for, say, a one-year period of stability in the South China Sea.</p>
+
+            <p>Of course, the viability of such a market hinges entirely on the credibility of the underlying index. A consortium of data firms, industry associations, and financial auditors would be needed to create a benchmark that is transparent, reliable, and resistant to manipulation. This, I believe, is the primary hurdle: translating messy, real-world operational data into the pristine language of a financial contract.</p>
+
+            <p>Yet, the commercial logic feels compelling. The development of such derivatives would represent the financialisation of the supply chain itself. It is a tool forged for an era of geostrategic rivalry, allowing firms to transform a nebulous geopolitical risk into a defined, hedgeable cost. The emergence of a liquid market for fab output swaps would not prevent a crisis in Taiwan, but it would provide a powerful mechanism to cushion the economic shockwaves, creating what I hope would be a more resilient, if more complex, global industrial architecture.</p>
+
+            <div class="section-title">(Preliminary) Mathematical Foundations of Output Swaps</div>
+
+            <p>The parametric payout can be modeled as a binary digital option triggered by a threshold breach over a specified consecutive duration:</p>
+
+            <p class="math">Payout = N × 𝟙(min<sub>t=1</sub><sup>T</sup> (OI<sub>t</sub> / OI<sub>0</sub>) ≤ (1 − δ))</p>
+
+            <p>Where:</p>
+            <ul>
+                <li><code>N</code>: The notional payout amount (e.g., $100M)</li>
+                <li><code>𝟙</code>: Indicator function equal to 1 if the condition is met, else 0</li>
+                <li><code>OI<sub>t</sub></code>: Output Index at day <code>t</code></li>
+                <li><code>OI<sub>0</sub></code>: Baseline Output Index at contract start</li>
+                <li><code>δ</code>: Threshold drop percentage (e.g., 15% represented as 0.15)</li>
+                <li><code>T</code>: Monitoring period in days (e.g., 20 days)</li>
+            </ul>
+
+            <p><strong>Assumptions:</strong> This model assumes continuous monitoring of a robust and independently verified output index, with the drop measured relative to a well-defined baseline. It further assumes the availability of high-frequency, high-integrity operational data resistant to manipulation.</p>
+
+            <p>To price this derivative, a stochastic model of the output index <code>OI<sub>t</sub></code> must be specified. A suitable approach, I would argue, is a jump-diffusion process which can capture both gradual fluctuations and discrete shocks:</p>
+
+            <p class="math">dOI<sub>t</sub> = μ × OI<sub>t</sub> dt + σ × OI<sub>t</sub> dW<sub>t</sub> − J<sub>t</sub> dN<sub>t</sub></p>
+
+            <p>Where:</p>
+            <ul>
+                <li><code>μ</code>: Drift term representing expected growth/decline</li>
+                <li><code>σ</code>: Volatility of continuous fluctuations</li>
+                <li><code>dW<sub>t</sub></code>: Wiener process increment (Brownian motion)</li>
+                <li><code>dN<sub>t</sub></code>: Poisson jump process with intensity <code>λ</code></li>
+                <li><code>J<sub>t</sub></code>: Jump size random variable modeling a sudden output drop</li>
+            </ul>
+
+            <p>Monte Carlo simulation of numerous paths (e.g., 100,000) of this process would then allow for the estimation of the expected payout:</p>
+
+            <p class="math">V<sub>0</sub> = e<sup>−rT</sup> × 𝔼[ N × 𝟙(min<sub>t=1</sub><sup>T</sup> (OI<sub>t</sub> / OI<sub>0</sub>) ≤ 1 − δ) ]</p>
+
+            <p>Where <code>r</code> is the risk-free discount rate, and <code>V<sub>0</sub></code> is the fair value (premium) of the output swap.</p>
+
+            <p>Furthermore, we must not neglect credit risk on the protection seller. This requires modeling the probability of default <code>P<sub>default</sub>(t)</code>, for which an intensity-based hazard model is a standard choice:</p>
+
+            <p class="math">P<sub>default</sub>(t) = 1 − e<sup>−∫<sub>0</sub><sup>t</sup> λ<sub>c</sub>(s) ds</sup></p>
+
+            <p>Where <code>λ<sub>c</sub>(t)</code> is the default intensity (or hazard rate), which may itself be correlated with the geopolitical or industrial stress factors that also affect fab output.</p>
+
+            <p><strong>Fair Warnings and Limitations:</strong></p>
+            <ul>
+                <li>Index accuracy is paramount; poor data quality or manipulation risks undermining contract integrity.</li>
+                <li>Parametric triggers, while objective, can create basis risk if the index drop doesn’t perfectly align with the buyer’s actual financial loss.</li>
+                <li>Calibration depends on historical data which may not capture unprecedented geopolitical shocks, requiring robust stress-test scenarios.</li>
+                <li>A potential for moral hazard exists if protection buyers reduce their own operational resiliency, relying solely on payouts.</li>
+                <li>Regulatory oversight is essential to ensure transparent pricing, adequate capital buffers for sellers, and overall market stability.</li>
+                <li>Liquidity could be a significant challenge in the early stages of such a market, potentially affecting pricing and the ability to enter or exit positions.</li>
+            </ul>
+
+            <p><strong>Technical Advisory:</strong> Index-based derivatives must be evaluated under multiple stress-test regimes, including geopolitical escalations, supply chain cascading failures, and industrial accidents. Calibration demands robust backtesting against both fab-level telemetry and historical geopolitical event datasets. Regulators and market participants must maintain constant vigilance against index manipulation and model risk.</p>
+
+            <h4>References</h4>
+            <p>Bank for International Settlements. (2024). OTC derivatives statistics at end-December 2023. Retrieved from <a href="https://www.bis.org/publ/otc_hy2405.htm" target="_blank">https://www.bis.org/publ/otc_hy2405.htm</a></p>
+            <p>Counterpoint Research. (2024). Foundry industry landscape and Taiwan’s role in it. Retrieved from <a href="https://www.counterpointresearch.com/foundry-industry-landscape-taiwan-role/" target="_blank">https://www.counterpointresearch.com/foundry-industry-landscape-taiwan-role/</a></p>
+            <p>IC Insights. (2024). Semiconductor Capital Spending and Industry Analysis. Retrieved from <a href="https://www.icinsights.com/news/bulletins/" target="_blank">https://www.icinsights.com/news/bulletins/</a></p>
+            <p>Shilov, A. (2022). Western Digital loses 7 exabytes of flash over contamination. Tom's Hardware. Retrieved from <a href="https://www.tomshardware.com/news/western-digital-loses-65-exabytes-of-flash-over-contamination" target="_blank">https://www.tomshardware.com/news/western-digital-loses-65-exabytes-of-flash-over-contamination</a></p>
+        </div>
+    </div>
+</body>
+</html>
