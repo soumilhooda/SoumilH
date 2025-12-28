@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Capture Pattern</title>
+    <link rel="stylesheet" href="stylesheet.css"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.65;
+            margin: 20px;
+            background-color: #f0f0f0;
+            color: #222;
+        }
+        .content {
+            max-width: 820px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 32px;
+        }
+        .blog-content {
+            text-align: justify;
+        }
+        .callout {
+            background-color: #f8f9fa;
+            border-left: 4px solid #cc0000;
+            padding: 18px 22px;
+            margin: 40px 0;
+            font-style: italic;
+            color: #444;
+        }
+        .references {
+            font-size: 14px;
+            color: #555;
+            margin-top: 70px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .references p {
+            margin-bottom: 14px;
+        }
+        .references a {
+            color: #cc0000;
+            text-decoration: none;
+            border-bottom: 1px dotted #cc0000;
+        }
+        .references a:hover {
+            background-color: #fff0f0;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+
+<p class="name">The Capture Pattern</p>
+<p class="subtitle">A year of reading, a holiday draft, and the quiet mechanics of strategic dependency</p>
+
+<div class="blog-content">
+
+<p>I bought <em>Apple in China</em> in the first half of the year with no larger intention attached to it. It was meant to be background reading, another book on supply chains and geopolitics to annotate lightly and shelve.</p>
+
+<p>Over the months that followed, the book refused to stay in the background. My daily <em>Financial Times</em> briefing began to feel less like a sequence of unrelated updates and more like a continuation of the same narrative. Regulatory notices, export controls, board disputes, loan announcements, procurement restrictions appeared distinct on the surface, yet they moved through the same underlying channels.</p>
+
+<p>By the time the year-end holidays arrived, the book had stopped being a discrete object. It had become a way of reading the news. The events of the year began to arrange themselves into scenes that followed a recognizable choreography.</p>
+
+<p>This piece is an attempt to write down that choreography. The cases matter only insofar as they reveal a broader structure. The subject here is the pattern through which global optimization produces dependency, and how that dependency becomes increasingly difficult to reverse.</p>
+
+<p>Patrick McGee’s account of Apple’s manufacturing strategy serves as a useful starting point. Concentrating production in China delivered speed, scale, and operational precision, while embedding the company inside a regulatory and political environment it could not fully control <a href="#ref1">[1]</a>. The debate over specifics continues. The structure itself has appeared often enough elsewhere to warrant closer attention.</p>
+
+<p>China is simply the most visible setting for this story.</p>
+
+<h3>The four structural pressures</h3>
+
+<p>Across industries, four pressures surfaced repeatedly. They did not appear as formal doctrine, but as constraints shaping outcomes.</p>
+
+<ol>
+<li><strong>Control points</strong>: legal, procedural, or physical mechanisms that determine whether operations continue.</li>
+<li><strong>Capability accumulation</strong>: where learning compounds as execution scales.</li>
+<li><strong>Policy interfaces</strong>: regulatory and compliance processes through which the state influences behavior.</li>
+<li><strong>Exit costs</strong>: the practical difficulty of unwinding an embedded position.</li>
+</ol>
+
+<div class="callout">
+Dependence is assembled gradually through decisions that are individually rational and collectively irreversible.
+</div>
+
+<h3>Scene 1: The paperwork blockade</h3>
+
+<p>The dispute surrounding ARM China unfolded publicly through legal filings and press statements. Its operational core lay elsewhere. Authority over the subsidiary depended on control of the legal representative designation and possession of the corporate seal required to validate corporate actions under Chinese law <a href="#ref2">[2]</a>.</p>
+
+<p>Board resolutions passed outside the jurisdiction did not translate into authority on the ground. Contracts stalled. Administrative processes froze. Ownership existed in principle, but execution did not follow.</p>
+
+<p>The episode exposed how corporate control fragments across legal systems. Authority rested not only in equity ownership, but in possession of locally recognized instruments.</p>
+
+<h3>Scene 2: The golden handcuffs</h3>
+
+<p>Tesla’s Shanghai Gigafactory is frequently cited for its construction speed and production scale. Less attention is paid to the financial architecture that supported it. Public disclosures and reporting describe substantial loan facilities provided by local banks, secured against local assets and tied directly to the site <a href="#ref3">[3]</a>.</p>
+
+<p>The structure reduced capital costs and accelerated execution. Over time, it also embedded the factory within a network of lenders, regulators, suppliers, and municipal stakeholders.</p>
+
+<p>As production scaled, the facility ceased to function as a relocatable asset. It became an anchor within a broader institutional web.</p>
+
+<h3>Scene 3: The antitrust pivot</h3>
+
+<p>Qualcomm’s 2015 antitrust settlement altered the company’s operating environment without removing it from the market. The agreement imposed changes to royalty calculations and licensing practices, redistributing negotiating leverage across the ecosystem <a href="#ref4">[4]</a>.</p>
+
+<p>Sales continued. Devices shipped. The economic shape of participation shifted.</p>
+
+<p>Regulatory process proved sufficient to reshape incentives while preserving formal market access.</p>
+
+<h3>Scene 4: The invisible ban</h3>
+
+<p>In 2023, China’s cybersecurity regulator concluded that Micron’s products posed security risks and restricted their purchase by operators of critical information infrastructure <a href="#ref5">[5]</a>.</p>
+
+<p>The decision focused on procurement channels rather than consumer markets. For suppliers, access became contingent on compliance status as much as technical merit.</p>
+
+<p>Demand did not disappear. It moved through different channels.</p>
+
+<h3>Scene 5: Learning under constraint</h3>
+
+<p>ASML’s position in advanced lithography placed it at the center of expanding export controls, including restrictions on servicing certain systems <a href="#ref6">[6]</a>.</p>
+
+<p>Manufacturers responded by extending the capabilities of older equipment through process adaptation and incremental upgrades. Reporting also described the misappropriation of confidential technical data by a former ASML employee based in China <a href="#ref7">[7]</a>.</p>
+
+<p>As access narrowed, learning reorganized itself around what remained available.</p>
+
+<div class="callout">
+Constraints alter the geography of learning before they alter the direction of progress.
+</div>
+
+<h3>Scene 6: The phantom embargo</h3>
+
+<p>The 2010 rare earth disruption involving Japan unfolded without formal declaration. Shipments slowed. Customs inspections lengthened. Official statements denied the existence of any embargo <a href="#ref8">[8]</a>.</p>
+
+<p>Manufacturers downstream faced immediate uncertainty. Inventory assumptions failed. Alternative sources could not be mobilized on relevant timelines.</p>
+
+<p>Upstream concentration proved sufficient to exert influence without overt prohibition.</p>
+
+<h3>Scene 7: Capability reversal</h3>
+
+<p>In 2024, General Motors disclosed more than five billion dollars in charges related to its China operations, reflecting restructuring and asset write-downs as domestic competitors surpassed foreign firms in software integration and product cadence <a href="#ref9">[9]</a>.</p>
+
+<p>Technology transfer had accompanied market access for decades. Capability accumulated where production occurred.</p>
+
+<p>The balance reversed.</p>
+
+<h3>Scene 8: The immovable asset</h3>
+
+<p>Shanghai Disney operates under an ownership structure that grants majority control to a state-backed partner while relying on Disney for intellectual property, operating standards, and brand <a href="#ref10">[10]</a>.</p>
+
+<p>The asset cannot be relocated or exited quietly. Daily operation depends on land use rights, permits, financing arrangements, and regulatory goodwill.</p>
+
+<p>Dependency emerges through immobility rather than enforcement.</p>
+
+<h3>The pattern in full</h3>
+
+<p>Across these episodes, the same structure appears. Control points consolidate through efficiency. Capability compounds where execution occurs. Policy interfaces adapt as leverage becomes visible. Exit costs rise gradually, then decisively.</p>
+
+<div class="callout">
+Dependence becomes visible only when conditions change and options are tested.
+</div>
+
+<h3>Closing scene</h3>
+
+<p>This exercise began as casual reading. Over the course of the year, it became a way of interpreting events as they unfolded. Patterns that initially appeared anecdotal resolved into structure.</p>
+
+<p>The value of recognizing this pattern lies in anticipation rather than reaction. Financing decisions, governance arrangements, and market entry strategies take on different meaning once control points and exit costs are visible.</p>
+
+<p>In an environment where economic systems and state power increasingly intersect, that literacy may be the most durable advantage available.</p>
+
+</div>
+
+<div class="references">
+<strong>References</strong>
+
+<p id="ref1">[1] Wikipedia. Apple in China.  
+<a href="https://en.wikipedia.org/wiki/Apple_in_China" target="_blank">https://en.wikipedia.org/wiki/Apple_in_China</a></p>
+
+<p id="ref2">[2] PE Insights. SoftBank’s Arm says China CEO fired for serious irregularities.  
+<a href="https://pe-insights.com/softbanks-arm-says-china-ceo-fired-for-serious-irregularities/" target="_blank">https://pe-insights.com/softbanks-arm-says-china-ceo-fired-for-serious-irregularities/</a>; Reuters. Arm’s China relationship complicates IPO.  
+<a href="https://www.reuters.com/markets/deals/arms-china-relationship-complicates-ipo-2023-08-22/" target="_blank">https://www.reuters.com/markets/deals/arms-china-relationship-complicates-ipo-2023-08-22/</a>; Tom’s Hardware. Arm wants to sell directly to Chinese customers.  
+<a href="https://www.tomshardware.com/pc-components/cpus/arm-wants-to-sell-directly-to-chinese-customers-sidestep-arm-china" target="_blank">https://www.tomshardware.com/pc-components/cpus/arm-wants-to-sell-directly-to-chinese-customers-sidestep-arm-china</a></p>
+
+<p id="ref3">[3] Reuters. Tesla to take new 1.4 billion dollar loan from Chinese banks for Shanghai factory.  
+<a href="https://www.reuters.com/article/technology/exclusive-tesla-to-take-new-14-billion-loan-from-chinese-banks-for-shanghai-f-idUSKBN1YR0TH/" target="_blank">https://www.reuters.com/article/technology/exclusive-tesla-to-take-new-14-billion-loan-from-chinese-banks-for-shanghai-f-idUSKBN1YR0TH/</a></p>
+
+<p id="ref4">[4] BBC News. Qualcomm to pay record 975 million dollars in China antitrust case.  
+<a href="https://www.bbc.com/news/business-31335551" target="_blank">https://www.bbc.com/news/business-31335551</a>; Reuters. Qualcomm to pay 975 million dollars to resolve China antitrust dispute.  
+<a href="https://www.reuters.com/article/technology/qualcomm-to-pay-975-million-to-resolve-china-antitrust-dispute-idUSKBN0LD2EL/" target="_blank">https://www.reuters.com/article/technology/qualcomm-to-pay-975-million-to-resolve-china-antitrust-dispute-idUSKBN0LD2EL/</a></p>
+
+<p id="ref5">[5] Reuters. China’s regulator finds serious security issues with Micron’s products.  
+<a href="https://www.reuters.com/technology/chinas-regulator-says-finds-serious-security-issues-us-micron-technologys-2023-05-21/" target="_blank">https://www.reuters.com/technology/chinas-regulator-says-finds-serious-security-issues-us-micron-technologys-2023-05-21/</a></p>
+
+<p id="ref6">[6] Reuters. ASML CEO says US restricts servicing some China equipment.  
+<a href="https://www.reuters.com/technology/asml-ceo-says-us-restricts-servicing-some-china-equipment-wont-hurt-earnings-2024-04-24/" target="_blank">https://www.reuters.com/technology/asml-ceo-says-us-restricts-servicing-some-china-equipment-wont-hurt-earnings-2024-04-24/</a>; Financial Times. China boosts AI chip output by upgrading older ASML machines.  
+<a href="https://www.ft.com/content/d10398db-b8b4-40f3-8c6d-b340470f5f3c" target="_blank">https://www.ft.com/content/d10398db-b8b4-40f3-8c6d-b340470f5f3c</a></p>
+
+<p id="ref7">[7] Bloomberg. Ex employee for chip machine maker ASML stole data.  
+<a href="https://www.bloomberg.com/news/articles/2023-02-15/ex-employee-for-chip-machine-maker-asml-stole-data-from-technical-repositary" target="_blank">https://www.bloomberg.com/news/articles/2023-02-15/ex-employee-for-chip-machine-maker-asml-stole-data-from-technical-repositary</a></p>
+
+<p id="ref8">[8] CEPR VoxEU. Revisiting the China Japan rare earths dispute of 2010.  
+<a href="https://cepr.org/voxeu/columns/revisiting-china-japan-rare-earths-dispute-2010" target="_blank">https://cepr.org/voxeu/columns/revisiting-china-japan-rare-earths-dispute-2010</a></p>
+
+<p id="ref9">[9] Reuters. GM to take more than 5 billion dollars charges on China operations.  
+<a href="https://www.reuters.com/business/autos-transportation/gm-take-more-than-5-billion-charges-china-operations-2024-12-04/" target="_blank">https://www.reuters.com/business/autos-transportation/gm-take-more-than-5-billion-charges-china-operations-2024-12-04/</a>; Bloomberg. GM sees 5 billion dollar hit to restructure China business.  
+<a href="https://www.bloomberg.com/news/articles/2024-12-04/gm-sees-5-billion-hit-to-restructure-troubled-china-business" target="_blank">https://www.bloomberg.com/news/articles/2024-12-04/gm-sees-5-billion-hit-to-restructure-troubled-china-business</a></p>
+
+<p id="ref10">[10] Reuters. Disney signs agreement for Shanghai theme park.  
+<a href="https://www.reuters.com/article/markets/asia/disney-signs-agreement-for-shanghai-theme-park-idUSTRE6A40DR/" target="_blank">https://www.reuters.com/article/markets/asia/disney-signs-agreement-for-shanghai-theme-park-idUSTRE6A40DR/</a></p>
+
+</div>
+
+<p style="text-align:right;font-size:small;color:#888;margin-top:40px;">
+Last updated December 28, 2025.
+</p>
+
+</div>
+</body>
+</html>
