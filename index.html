@@ -10,6 +10,28 @@
     <style>
       /* small spacing tweak for News list */
       .news li + li { margin-top: 8px; }
+
+      /* Reads collapsible – minimal, no boxes/cards */
+      details.reads-toggle summary {
+        cursor: pointer;
+        list-style: none;
+        outline: none;
+      }
+      details.reads-toggle summary::-webkit-details-marker {
+        display: none;
+      }
+      details.reads-toggle summary::before {
+        content: "▸ ";
+        display: inline-block;
+      }
+      details.reads-toggle[open] summary::before {
+        content: "▾ ";
+      }
+      @media (max-width: 600px) {
+        details.reads-toggle summary {
+          padding: 6px 0;
+        }
+      }
     </style>
   </head>
 
@@ -32,23 +54,44 @@
                     </p>
 
                     <p>
-                      Over the years, I’ve had the chance to work across diverse research settings. At the Space Applications Centre (ISRO) and CSIR-CEERI, I explored applied machine learning in remote sensing, atmospheric modelling, healthcare, and Brain-Computer Interfaces.
-                      Along the way, I was fortunate to collaborate with inspiring mentors including
+                      Over the years, I’ve had the chance to work across a range of research settings that sit at the intersection of machine learning and physical systems. 
+                      At the Space Applications Centre (ISRO) and CSIR–CEERI, I explored applied ML in remote sensing, atmospheric modelling, healthcare, and Brain–Computer Interfaces.
+                      Along the way, I was fortunate to learn from mentors including
                       <a href="https://www.bits-pilani.ac.in/hyderabad/manik-gupta/" target="_blank" rel="noopener noreferrer">Prof. Manik Gupta</a>,
                       <a href="https://sites.google.com/site/rajeshtripathy17" target="_blank" rel="noopener noreferrer">Prof. Rajesh Tripathy</a>, and
                       <a href="https://scholar.google.co.in/citations?user=LoA8R0YAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Dr. Satya Prakash Ojha</a>.
                     </p>
 
                     <p>
-                      Another major focus of mine has been <strong>weather risk management in India</strong>—an area I believe is still underserved.
-                      I developed a suite of financial products such as temperature-based derivatives, rainfall-agriculture quanto contracts, and wind/solar energy swaps, while also studying securitization strategies for schemes like PMFBY and WBCIS.
+                      Another major focus of mine has been <strong>weather risk management in India</strong>—an area I believe is still structurally underserved.
+                      I’ve worked on designing and analyzing financial instruments such as temperature-based derivatives, rainfall–agriculture quanto contracts, and wind/solar energy swaps,
+                      alongside studying securitization strategies for schemes like PMFBY and WBCIS.
+                      This line of work gradually evolved from academic curiosity into a more product-oriented effort.
                       Please click <a href="https://soumilhooda.com/wd" target="_blank" rel="noopener noreferrer">here</a> if you’d like to read a more personal account of this.
                     </p>
 
                     <p>
-                      On the industry side, I interned at <strong>Texas Instruments</strong>, where I worked on an assertion-based verification IP for an internal protocol, and prototyped a GNN + RL–based framework for formal verification of complex FSMs.
-                      I later interned at <strong>Google</strong>, where I contributed to the <a href="https://en.wikipedia.org/wiki/Google_Tensor" target="_blank" rel="noopener noreferrer">Tensor</a> chassis platform in subsystem fabric / auxiliary network integration, and now work full-time as a Silicon Engineer with the coherent fabric design team.
+                      On the industry side, I’ve spent time working close to silicon. 
                     </p>
+
+                    <p>
+                      During my internship at <strong>Texas Instruments</strong>, I worked on developing an assertion-based formal verification IP for a real-time microcontroller platform,
+                      with a focus on reusable, property-driven verification infrastructure.
+                      Alongside this, I independently explored representing finite-state machines as graphs and experimenting with GNN-based approaches to analyze their behavior,
+                      primarily as an exploratory exercise to understand the limits of conventional verification workflows.
+                    </p>
+
+
+                    <p>
+                      I later interned at <strong>Google</strong>, where I worked on infrastructure for generating and integrating subsystem-level RTL based on architectural configuration.
+                      The work touched the full spectrum of auxiliary logic bring-up—spanning power intent, clock/reset domain crossing, linting, and register collateral—
+                      and gave me a systems-level view of how large SoC blocks are stitched together.
+                    </p>
+
+                    <p>
+                      I now work full-time at <strong>Google</strong> as a Silicon Engineer on a first-party cache-coherent interconnect IP.
+                    </p>
+
 
                     <p style="text-align:center">
                       <a href="mailto:hoodasoumil@gmail.com">Email</a>  /
@@ -107,16 +150,38 @@
               <tbody>
                 <tr>
                   <td style="padding:20px;width:100%;vertical-align:middle">
-                    <h2>H1 2025 Reads</h2>
-                    <ul>
-                      <li><em>Chip War</em> — Chris Miller</li>
-                      <li><em>Apple in China</em> — Patrick McGee</li>
-                      <li><em>More Money Than God</em> — Sebastian Mallaby</li>
-                    </ul>
+                    <h2>Reads</h2>
+
+                    <details class="reads-toggle" open>
+                      <summary><strong>H1 2026 Reads</strong></summary>
+                      <ul>
+                        <li><em>The Thinking Machine</em> — Stephen Witt</li>
+                      </ul>
+                    </details>
+
+                    <details class="reads-toggle">
+                      <summary><strong>H2 2025 Reads</strong></summary>
+                      <ul>
+                        <li><em>If Then</em> — Jill Lepore</li>
+                        <li><em>How Countries Go Broke?</em> — Ray Dalio</li>
+                        <li><em>The Hard Thing About Hard Things</em> — Ben Horrowitz</li>
+                      </ul>
+                    </details>
+
+                    <details class="reads-toggle">
+                      <summary><strong>H1 2025 Reads</strong></summary>
+                      <ul>
+                        <li><em>Chip War</em> — Chris Miller</li>
+                        <li><em>Apple in China</em> — Patrick McGee</li>
+                        <li><em>More Money Than God</em> — Sebastian Mallaby</li>
+                      </ul>
+                    </details>
+
                   </td>
                 </tr>
               </tbody>
             </table>
+
 
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
               <tbody>
@@ -240,7 +305,7 @@
                   <td style="padding:0px">
                     <br>
                     <p style="text-align:right;font-size:small;">
-                      Last updated on September 28th 2025. Website template taken with gratitude from
+                      Last updated on <span id="last-updated"></span>. Website template taken with gratitude from
                       <a href="https://jaykarhade.github.io/" target="_blank" rel="noopener noreferrer">Jay Karhade</a>.
                     </p>
                   </td>
@@ -252,5 +317,14 @@
         </tr>
       </tbody>
     </table>
+
+    <script>
+      (function () {
+        const d = new Date(document.lastModified);
+        document.getElementById("last-updated").textContent =
+          d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+      })();
+    </script>
+
   </body>
 </html>
