@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+<title>The Thermodynamics of Artificial Intelligence</title>
+<link rel="stylesheet" href="stylesheet.css"/>
+<style>
+body {
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  margin: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+.content {
+  max-width: 800px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 40px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  border-radius: 4px;
+}
+.headline {
+  font-family: 'Arial', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+.sub-headline {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+.byline {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  font-family: 'Arial', sans-serif;
+}
+.byline strong {
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.article-body {
+  font-size: 18px;
+  text-align: justify;
+}
+.article-body p {
+  margin-bottom: 20px;
+}
+.callout {
+  background-color: #f8f9fa;
+  border-left: 4px solid #cc0000;
+  padding: 15px;
+  margin: 25px 0;
+  font-style: italic;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+}
+.ref-link {
+  color: #cc0000;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 1px dotted #cc0000;
+}
+.ref-link:hover {
+  background-color: #fff0f0;
+}
+.disclaimer {
+  font-size: 12px;
+  color: #777;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.45;
+  text-align: left;
+  background-color: #fafafa;
+  padding: 15px;
+}
+.citation-box {
+  font-size: 14px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+  color: #666;
+}
+
+/* Key numbers panel */
+.data-box {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-left: 4px solid #1a1a1a;
+  padding: 16px 16px 12px 16px;
+  margin: 25px 0;
+  font-family: 'Arial', sans-serif;
+}
+.data-box .data-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-size: 13px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+.data-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.data-box li {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.35;
+}
+.data-box .knum {
+  font-weight: 800;
+  color: #000;
+}
+.data-box .klabel {
+  color: #555;
+}
+.data-box .ksrc {
+  font-size: 12px;
+  color: #777;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+</style>
+</head>
+
+<body>
+<div class="content">
+  <div class="headline">Hard Power: AI Meets the Grid</div>
+  <div class="sub-headline">The AI supercycle is colliding with a brutally physical wall: the electrical grid. The next great capex wave is firm power and the hardware that moves it.</div>
+  <div class="byline"><strong>Published:</strong> February 22, 2026</div>
+
+  <div class="article-body">
+
+    <p><strong>Executive summary.</strong> The bottleneck for AI is shifting from chips to electricity. In 2026, scaling compute is increasingly bounded by <em>firm deliverable power</em>, grid interconnection timelines, and heat removal. Three demand waves, AI data centres, industrial reshoring, and economy-wide electrification, are converging on the same constraint: grid capacity and the physical equipment that expands it. Scarcity rents flow upstream to grid equipment makers, transmission builders, firm generators, and thermal infrastructure. Meanwhile, power-exposed industrials and low-moat compute consumers face margin compression. You cannot compute what you cannot power.</p>
+
+    <p>For most of the 2010s, the global economy lived inside a comforting story: software scale meant falling marginal costs. “The cloud” sounded weightless, capital was cheap, and markets rewarded anything that looked asset-light. Meanwhile, the physical layer, data centres, transformers, substations, transmission lines, cooling plants, was treated as background infrastructure. Abundant. Boring. Someone else’s problem.</p>
+
+    <p>That story is breaking. Not because software stopped improving, but because the constraint moved. In 2026, the marginal cost of compute is increasingly bounded by physical reality: <strong>power availability, grid timelines, and thermals</strong>.</p>
+
+    <p>Three demand waves are colliding. First is the generative AI buildout: training clusters and inference fleets that push utilization and rack density to extremes. Second is industrial reshoring, which relocates energy-intensive production into regions already struggling to expand grids. Third is electrification, vehicles, heating, and industrial processes shifting from molecules to electrons. Different narratives, one shared dependency: <strong>more electricity, delivered reliably, in the right places, fast</strong>.</p>
+
+    <div class="callout">
+      “We’ve moved from a silicon constraint to a power constraint. The AI economy is no longer limited by how many GPUs you can buy, but by how many megawatts you can actually deliver.”
+    </div>
+
+    <div class="data-box">
+      <div class="data-title">Key numbers</div>
+      <ul>
+        <li><span class="knum">$333.44/MW-day</span> <span class="klabel">PJM 2027/2028 Base Residual Auction, clearing at the cap (Dec 2025)</span></li>
+        <li><span class="knum">$329.17/MW-day</span> <span class="klabel">PJM 2026/2027 auction, also clearing at the cap (Jul 2025)</span></li>
+        <li><span class="knum">128 weeks</span> <span class="klabel">average lead time for high-voltage power transformers in recent surveys</span></li>
+        <li><span class="knum">144 weeks</span> <span class="klabel">average lead time for generator step-up transformers (GSUs)</span></li>
+        <li><span class="knum">415 TWh to ~945 TWh</span> <span class="klabel">IEA base case for global data centre electricity use (2024 to 2030)</span></li>
+      </ul>
+      <div class="ksrc">
+        Sources: <a class="ref-link" href="https://insidelines.pjm.com/pjm-auction-procures-134479-mw-of-generation-resources/" target="_blank" rel="noopener">PJM</a>, 
+        <a class="ref-link" href="https://www.woodmac.com/news/opinion/mind-the-gap-tackling-supply-chain-challenges-in-the-electric-td-sector/" target="_blank" rel="noopener">WoodMac</a>, 
+        <a class="ref-link" href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai" target="_blank" rel="noopener">IEA</a>.
+      </div>
+    </div>
+
+    <p>The category error is thinking the energy transition is frictionless. Data centres don’t behave like flexible consumer loads. They are engineered for extremely high availability and tight service guarantees. That makes <strong>firm, dispatchable power</strong> uniquely valuable: electricity that shows up at 2 a.m. on a windless night, in a heat wave, when the grid is stressed.</p>
+
+    <p>Intermittent renewables can and will contribute meaningfully. But turning intermittent generation into “always-on” supply typically requires some combination of storage, overbuild, new transmission, and curtailment, each layer adding cost and friction. For many AI deployments, the all-in cost of “firming” power is the difference between attractive unit economics and marginal ones.</p>
+
+    <p>Then comes the unglamorous bottleneck: you can’t software-update a substation. Grid expansion is slow because it is physical, regulated, and politically contested. Even when generation exists, it can be trapped behind transmission limits or local congestion. The result is a brutal mismatch: demand can scale in quarters; supply scales in years.</p>
+
+    <p>So hyperscalers are adapting. The next capex wave isn’t just GPUs and custom silicon. It’s <strong>energy procurement, siting, and control</strong>: long-dated PPAs with firm generators, co-location strategies near existing plants, and “behind-the-meter” structures that reduce dependence on public grid timelines. Power stops being a utility input and starts looking like premium real estate.</p>
+
+    <p>The second-order effects are where the real repricing happens.</p>
+
+    <p><strong>First:</strong> unhedged electricity consumers get squeezed. Energy-intensive industries, aluminum, chemicals, certain manufacturing, depend on stable power costs. In constrained nodes, the arrival of huge, creditworthy buyers willing to pay up for firmness changes the clearing price for everyone. Firms without hedges, captive generation, or favorable long-term contracts can see margin structures break.</p>
+
+    <p><strong>Second:</strong> a compute class divide emerges inside tech. Hyperscalers can secure power and pass costs through. Many Tier-2 providers and low-moat SaaS companies cannot. If compute is a rising share of COGS and end users resist price hikes, the outcome is plain: margin compression followed by multiple compression. The “AI wrapper” layer may discover it is effectively short electricity.</p>
+
+    <p><strong>Third:</strong> cooling becomes the silent limiter. This is the thermodynamics most people miss. AI-driven rack densities are approaching <strong>~100 kW</strong> in advanced deployments, forcing a transition away from traditional air cooling toward liquid-based thermal systems. JLL expects average rack density in new facilities to triple to ~45 kW and forecasts <strong>~80% liquid cooling adoption</strong> in new builds by 2026 (<a class="ref-link" href="https://www.jll.com/en-in/insights/market-outlook/data-center-outlook" target="_blank" rel="noopener">JLL</a>).</p>
+
+    <p>All of this points to an investable logic: scarcity rents flow upstream to whoever controls firm supply and the bottlenecks that expand it.</p>
+
+    <p><strong>The “Hard Power” long book</strong> is not generic “utilities and copper.” It is the physical choke points. Start with grid equipment. Add the engineering and construction firms that build transmission, substations, and interconnection capacity, plus the thermal-management suppliers that enable higher density compute.</p>
+
+    <p><strong>The short book</strong> sits on the wrong side of the equation: power-hungry commodity producers without hedges or captive generation in constrained grids; over-levered developers whose returns are fragile to capital costs, curtailment, and queue delays; and commoditized compute consumers with high cloud costs as a share of revenue and weak pricing power.</p>
+
+    <p>The demand floor is not purely “AI hype.” Even if AI monetization cools, electrification and reshoring continue to pull on the same grid constraint.</p>
+
+    <p>Yes, breakthroughs could eventually relax the bottleneck: accelerated permitting reform, major transmission buildouts, or new nuclear pathways. But deployment timelines matter more than press releases. The next decade is unlikely to be defined by how clever our models are. It will be defined by whether we can deliver enough electrons, through enough copper, into enough substations, to keep the racks cool and the uptime intact.</p>
+
+    <p>The coming decade’s defining constraint is brutally simple: <strong>you can’t compute what you can’t power.</strong></p>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong><br>
+      This publication is provided solely for informational, educational, and general commentary purposes. It does not constitute, and should not be construed as, financial, investment, legal, accounting, engineering, or other professional advice. Nothing herein is a recommendation, solicitation, or offer to buy or sell any security, commodity, derivative, or financial instrument, or to engage in any investment strategy. Past performance is not indicative of future results. Any forward-looking statements are inherently uncertain and may differ materially from actual outcomes.
+      <br>
+      All views, opinions, analyses, and conclusions expressed herein are solely those of the author in their personal capacity and do not reflect the official policy, position, strategy, views, or opinions of the author’s employer (or any of its subsidiaries, affiliates, customers, suppliers, or partners). The author is not acting on behalf of, and is not authorized to speak for, any employer or related entity.
+      <br>
+      This publication is based exclusively on publicly available information and the author’s independent interpretation. No material non-public information (MNPI) has been used, disclosed, relied upon, or inferred in preparing this publication. Nothing herein should be interpreted as commentary on any current or future product plans, business strategies, financial performance, or confidential matters of the author’s employer or any other entity.
+      <br>
+      Readers are responsible for conducting their own independent research and for seeking advice from qualified professionals before making any decision. The author disclaims any liability for actions taken based on this publication.
+    </div>
+
+  </div>
+
+  <div class="citation-box">
+    <strong>Sources:</strong>
+    <br>1. PJM, “PJM Auction Procures 134,479 MW of Generation Resources” (Dec 17, 2025).
+    <br>2. PJM, “2027/2028 Base Residual Auction Report” (Dec 2025 PDF).
+    <br>3. PJM, “2026/2027 Base Residual Auction Report” (Jul 22, 2025 PDF).
+    <br>4. Wood Mackenzie, “Mind the Gap: Tackling Supply-Chain Challenges in the Electric T&amp;D Sector” (Oct 15, 2025).
+    <br>5. International Energy Agency (IEA), “Energy and AI” (data centre electricity projections).
+    <br>6. JLL, “2026 Global Data Center Outlook” (Jan 2026) and related reporting on rack density and liquid cooling.
+  </div>
+
+</div>
+</body>
+</html>
