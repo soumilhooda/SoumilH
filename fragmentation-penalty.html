@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+<title>The Fragmentation Penalty: Geography Bats Last</title>
+<link rel="stylesheet" href="stylesheet.css"/>
+<style>
+body {
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  margin: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+.content {
+  max-width: 800px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 40px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  border-radius: 4px;
+}
+.headline {
+  font-family: 'Arial', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+.sub-headline {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+.byline {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  font-family: 'Arial', sans-serif;
+}
+.byline strong {
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.article-body {
+  font-size: 18px;
+  text-align: justify;
+}
+.article-body p {
+  margin-bottom: 20px;
+}
+.callout {
+  background-color: #f8f9fa;
+  border-left: 4px solid #cc0000;
+  padding: 15px;
+  margin: 25px 0;
+  font-style: italic;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+}
+.ref-link {
+  color: #cc0000;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 1px dotted #cc0000;
+}
+.ref-link:hover {
+  background-color: #fff0f0;
+}
+.disclaimer {
+  font-size: 12px;
+  color: #777;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.45;
+  text-align: left;
+  background-color: #fafafa;
+  padding: 15px;
+}
+.citation-box {
+  font-size: 14px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+  color: #666;
+}
+
+/* Key numbers panel */
+.data-box {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-left: 4px solid #1a1a1a;
+  padding: 16px 16px 12px 16px;
+  margin: 25px 0;
+  font-family: 'Arial', sans-serif;
+}
+.data-box .data-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-size: 13px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+.data-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.data-box li {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.35;
+}
+.data-box .knum {
+  font-weight: 800;
+  color: #000;
+}
+.data-box .klabel {
+  color: #555;
+}
+.data-box .ksrc {
+  font-size: 12px;
+  color: #777;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+.author-note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.45;
+  text-align: left;
+  background-color: #fafafa;
+  padding: 15px;
+}
+.author-note strong {
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  color: #111;
+  border-bottom: 2px solid #111;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+.map-panel {
+  margin: 35px 0;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.map-panel-title {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+.map-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.map-item {
+  flex: 1 1 220px;
+  text-align: center;
+}
+.map-item iframe {
+  width: 100%;
+  height: 220px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+.map-caption {
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+</style>
+</head>
+
+<body>
+<div class="content">
+  <div class="headline">The Fragmentation Penalty: Geography Bats Last</div>
+  <div class="sub-headline">The 2026 Gulf crisis has exposed the fragility of hyper-optimised global systems. From the thermodynamics of LNG to the fracturing of hardware supply chains, physical constraints are reasserting themselves in ways that markets had largely stopped pricing.</div>
+  <div class="byline"><strong>Published:</strong> March 22, 2026</div>
+
+  <div class="article-body">
+
+    <p><strong>Executive summary.</strong> The closure of the Strait of Hormuz on March 9th, 2026, following the outbreak of conflict between the US, Israel, and Iran, has produced the largest energy supply shock since the 1970s. The immediate effects on oil and gas markets are well-documented. Less discussed are the second-order effects on the industrial and technology systems that were quietly reliant on the assumption of stable, cheap energy. This piece examines three of those fracture points: the thermodynamic constraints of LNG infrastructure, the accelerating decoupling of hardware supply chains, and the energy cost exposure embedded in the AI investment cycle. It also considers the countervailing forces that markets are now beginning to price: accelerated North American LNG capacity, European electrification urgency, and the industrial logic of reshoring.</p>
+
+    <p>To understand the depth of this disruption, it helps to look past the spot price of crude, though oil threatening $150 a barrel carries significant consequences for growth and inflation on its own. The more durable story is structural: the 2020s built a global industrial architecture on the assumption of continuous, low-cost energy and predictable maritime logistics. That assumption is now being tested at its most concentrated chokepoint.</p>
+
+    <p><strong>Thermodynamics and the Energy Chokepoint</strong> The Strait of Hormuz closure has locked away approximately 15 million barrels per day (b/d) of crude, roughly 15% of global output, alongside another 4 million b/d of refined products. Japan, South Korea, and India each source between 40% and 80% of their seaborne crude through this single waterway, giving the disruption an asymmetric impact on Asian energy importers. The IEA has coordinated a release of 400 million barrels from emergency reserves, providing some near-term buffer, though one that is limited in duration.</p>
+
+    <p>The LNG disruption is, in some respects, more structurally complex. When QatarEnergy declared <em>force majeure</em>, the reflex response among many analysts was to treat it as a temporary pause. The physical reality is more constrained. Natural gas must be cooled to -160 degrees Celsius to become a transportable liquid, and a liquefaction facility is not a switch that can be flipped off and on. Once a plant begins warming, thermal recalibration takes a minimum of two weeks before production can safely resume. A disruption extending beyond a month would eliminate approximately 14% of global annual LNG output from Qatar alone, with no near-term substitute of comparable scale.</p>
+
+    <p>The downstream effects are visible across Asian markets. South Korea launched an emergency 100 trillion won ($68 billion) stabilisation fund to limit contagion to its equity markets. In India, Indian Oil and GAIL have cut industrial gas supply by up to 30%. A less-reported secondary effect is a tightening in global helium supply, a by-product of natural gas refining with critical applications in semiconductor fabrication.</p>
+
+    <p>The medium-term offset is meaningful, though not immediate. North American LNG export capacity has been expanding steadily, with several Gulf Coast terminals adding throughput through 2025 and 2026. The US is now the world's largest LNG exporter, and rerouting additional volumes to Asia is commercially and logistically feasible over a period of months. This does not resolve the near-term supply gap, but it does represent a structural shift in the global LNG market that predates this crisis and will likely accelerate because of it.</p>
+
+    <div class="callout">
+      "The constraint has moved from silicon to power to geopolitics in the space of three years. Each layer has been harder to resolve than the last, because each one is less amenable to a software fix."
+    </div>
+
+    <div class="data-box">
+      <div class="data-title">The Arithmetic of Disruption</div>
+      <ul>
+        <li><span class="knum">15m b/d</span> <span class="klabel">Crude oil affected by the Strait of Hormuz closure (approx. 15% of global output).</span></li>
+        <li><span class="knum">-160°C</span> <span class="klabel">Operating temperature of LNG. Qatari plant shutdowns require a minimum of two weeks of thermal recalibration before restart.</span></li>
+        <li><span class="knum">14%</span> <span class="klabel">Share of global annual LNG output at risk if Qatari disruptions extend beyond one month.</span></li>
+        <li><span class="knum">400m barrels</span> <span class="klabel">Emergency crude released by IEA member states on March 11th, providing a partial and time-limited buffer.</span></li>
+        <li><span class="knum">100trn won</span> <span class="klabel">Emergency stabilisation fund deployed by South Korea ($68bn) in response to market stress.</span></li>
+        <li><span class="knum">0.7pp</span> <span class="klabel">ECB estimate of Eurozone GDP drag under a prolonged blockade scenario, with a full point added to inflation.</span></li>
+        <li><span class="knum">35-fold</span> <span class="klabel">Growth in Taiwan's "China-free" drone exports between 2024 and 2025, reaching 123,000 units.</span></li>
+      </ul>
+      <div class="ksrc">
+        Sources:
+        <a class="ref-link" href="https://www.economist.com/leaders/2026/03/12/an-attack-on-the-world-economy" target="_blank" rel="noopener">The Economist</a>
+      </div>
+    </div>
+
+    <p><strong>The Hardware Schism</strong> The Gulf disruption is accelerating a process of supply chain decoupling that was already well underway. The strategic logic is straightforward: a globally integrated supply chain that relies on a single maritime corridor or a single dominant supplier has a concentration risk that became much harder to ignore after 2022. The practical response has been a push toward geographically diversified, allied-nation sourcing, with a corresponding cost premium.</p>
+
+    <p>Taiwan's UAV industry is the most visible current example. David Liu of Kunway Technology has built a firm that exports quadcopters carrying 8kg payloads at 140kph, manufactured entirely without Chinese components. The cost is roughly double that of Chinese equivalents. Taiwan's UAV production has grown 35-fold since 2024, reaching 123,000 units in 2025. The government estimates it will need $1.4 billion in additional investment by 2029 to close remaining gaps in flight-control software and rare-earth magnet sourcing. The economics here are not primarily about price competition; they reflect a willingness to pay a sustained premium for supply chain independence.</p>
+
+    <p>The same dynamic is visible, at varying stages of development, in semiconductor packaging, subsea cable manufacturing, and pharmaceutical active ingredients. These are industries where the cost savings from global optimisation were real and significant, and where rebuilding domestic or allied-nation capacity carries a genuine price tag. That cost is now being absorbed, or debated, across most major industrial economies. Europe's response to its energy exposure has, notably, included a significant acceleration of electrification investment, with the continent's grid build-out proceeding at a pace that would have seemed implausible three years ago.</p>
+
+    <div class="map-panel">
+      <div class="map-panel-title">Geopolitics, Satellite Imagery, and a Universal Constant</div>
+      <p style="font-size: 14px; text-align: justify; margin-bottom: 15px; color: #444; line-height: 1.5; font-family: Arial, sans-serif;">
+        While mapping the infrastructure at the centre of this crisis, one detail kept appearing in the satellite imagery: football pitches. On Siri Island, Kharg Island, and Diego Garcia, the same flat rectangle of marked turf sits quietly among the pipelines, runways, and loading gantries. It is a small reminder that even the most operationally critical real estate in the world is also, stubbornly, somewhere that people live and work.
+      </p>
+      <div class="map-container">
+        <div class="map-item">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2188.8882317631032!2d54.53438103465198!3d25.92283470579521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e590969d9555555%3A0xa174f5e23fa838db!2sFootball%20field!5e1!3m2!1sen!2sin!4v1774191055693!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="map-caption"><strong>Siri Island, Iran</strong><br>Offshore Oil Hub</div>
+        </div>
+        <div class="map-item">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5056.650457325847!2d50.319257370071945!3d29.24206171685135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fb60ce8e97e9d47%3A0xd6f1fcb3a155d8d4!2sAbash%20football%20pitch!5e1!3m2!1sen!2sin!4v1774191109722!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="map-caption"><strong>Kharg Island, Iran</strong><br>Primary Crude Export Terminal</div>
+        </div>
+        <div class="map-item">
+          <iframe src="https://maps.google.com/maps?q=-7.279749,72.373930&t=k&z=16&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="map-caption"><strong>Diego Garcia, BIOT</strong><br>Joint US/UK Strategic Base</div>
+        </div>
+      </div>
+    </div>
+
+
+    <p><strong>AI, Energy, and the Cost Stack</strong> The technology sector has its own specific exposure to this disruption. The current AI investment cycle, represented most visibly by the near-simultaneous IPO processes of OpenAI ($840 billion target valuation), Anthropic ($500 billion), and Elon Musk's xAI (reportedly seeking $1.5 trillion following its merger with X), has been underwritten by assumptions about energy cost that are now under pressure. OpenAI's proposed $100 billion Stargate data centre campus, for instance, requires substantial firm baseload power, a significant portion of which was expected to come from gas-fired generation.</p>
+
+    <p>The exposure is not uniform. Hyperscalers that have moved to secure behind-the-meter power through co-located nuclear or geothermal agreements are partially insulated. Those that remain dependent on utility contracts, and therefore exposed to spot LNG pricing passed through the grid, face a materially different cost environment than their models assumed twelve months ago. The question for the application layer, the AI wrapper and SaaS businesses running on top of hyperscaler infrastructure, is how much of any cost increase is absorbed versus passed on, and over what timeline.</p>
+
+    <p>There are offsetting forces worth noting. The efficiency trajectory of AI inference hardware has been steep, with each generation of chips delivering meaningfully more compute per watt than the last. Model efficiency improvements, particularly in inference, are reducing the energy cost per useful output. And the urgency created by this crisis is likely to accelerate investment in the nuclear and geothermal capacity that would reduce gas dependence for data centre power over a multi-year horizon. The question is whether the transition is fast enough to avoid a meaningful cost inflection in the interim.</p>
+
+    <p><strong>Macro Contagion and Structural Adjustment</strong> The ECB estimates a prolonged Hormuz closure would reduce Eurozone GDP by 0.7 percentage points while adding a full point to inflation. Within the Gulf Co-operation Council, the effects are uneven. Bahrain faces the sharpest strain: its ALBA aluminium smelter is among the industrial assets idled by the disruption, and its 146% debt-to-GDP ratio limits its fiscal capacity to absorb a sustained energy shock. Saudi Arabia and the UAE, both in the middle of significant economic diversification programmes, face a different set of pressures: their tourism, financial services, and foreign investment narratives depend on a degree of regional stability that is currently difficult to project with confidence.</p>
+
+    <p>The longer-term structural adjustment is more legible. Energy-importing economies are accelerating investments in domestic renewable capacity and grid infrastructure that reduce their exposure to any single import route. The European electrification push, already underway before this crisis, has been given additional political impetus. South Korea and Japan are revisiting nuclear restart timelines that had been politically contentious. These are not fast processes, but they represent a durable reorientation of energy infrastructure investment that will shape industrial costs and competitiveness through the 2030s.</p>
+
+    <p><strong>What Changes, and What Does Not</strong> The structural forces visible in this crisis, concentrated chokepoints in energy logistics, the cost of supply chain resilience, the energy intensity of large-scale compute, were present before February 2026. What has changed is the speed at which they are being priced. A disruption of this magnitude compresses timelines: decisions about LNG contract structure, supply chain geography, and data centre power sourcing that might have played out over several years are now being made under acute pressure.</p>
+
+    <p>Some of what is being repriced will prove durable. The premium on geographically diversified supply chains, on domestic energy production capacity, and on firm power for critical infrastructure is unlikely to fully reverse even if the current disruption resolves. Other effects, particularly in spot energy markets, are more likely to normalise as North American export capacity fills part of the gap and diplomatic channels reopen. Distinguishing between the two is where the analytical work lies.</p>
+
+    <p>The 2010s were an unusual period in industrial history: cheap capital, falling energy costs, and globally integrated supply chains operating with minimal friction. The current disruption is a stress test of the systems that were built in that environment. Some will prove more robust than expected. Others will require significant reconfiguration. The honest answer is that it is too early to know which is which.</p>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong><br>
+      This publication is provided solely for informational, educational, and general commentary purposes. It does not constitute, and should not be construed as, financial, investment, legal, accounting, engineering, or other professional advice. Nothing herein is a recommendation, solicitation, or offer to buy or sell any security, commodity, derivative, or financial instrument, or to engage in any investment strategy. Past performance is not indicative of future results. Any forward-looking statements are inherently uncertain and may differ materially from actual outcomes.
+      <br>
+      All views, opinions, analyses, and conclusions expressed herein are solely those of the author in their personal capacity and do not reflect the official policy, position, strategy, views, or opinions of the author's employer (or any of its subsidiaries, affiliates, customers, suppliers, or partners). The author is not acting on behalf of, and is not authorised to speak for, any employer or related entity.
+      <br>
+      This publication is based exclusively on publicly available information and the author's independent interpretation. No material non-public information has been used, disclosed, relied upon, or inferred in preparing this publication.
+      <br>
+      Readers are responsible for conducting their own independent research and for seeking advice from qualified professionals before making any decision. The author disclaims any liability for actions taken based on this publication.
+    </div>
+
+  </div>
+
+  <div class="citation-box">
+    <strong>Sources:</strong>
+    <br>1. <em>The Economist</em>, "An attack on the world economy" (March 14th, 2026).
+    <br>2. Vortexa &amp; Rystad Energy -- Strait of Hormuz chokepoint mapping and global LNG capacity data (March 2026).
+    <br>3. International Energy Agency (IEA) -- Emergency crude release data and North American LNG export projections (March 2026).
+    <br>4. European Central Bank -- GDP and inflation sensitivity estimates, prolonged energy disruption scenario (March 2026).
+  </div>
+
+</div>
+</body>
+</html>
