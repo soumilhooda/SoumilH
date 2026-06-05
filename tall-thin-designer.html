@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>The Tall Thin Designer — Soumil Hooda</title>
+    <meta name="author" content="Soumil Hooda">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+    <style>
+      .essay p { line-height: 1.7; margin: 0 0 18px; }
+      .essay .lede { color: #555; }
+      .essay .sep {
+        text-align: center;
+        margin: 26px 0;
+        color: #aaa;
+        letter-spacing: 6px;
+        font-size: 14px;
+      }
+      .backlink { font-size: 14px; }
+    </style>
+  </head>
+
+  <body>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+      <tbody>
+        <tr style="padding:0px">
+          <td style="padding:0px">
+
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+              <tbody>
+                <tr style="padding:0px">
+                  <td style="padding:2.5%;width:100%;vertical-align:middle">
+
+                    <p class="name" style="text-align:center;">The Tall Thin Designer</p><br>
+
+                    <div class="essay">
+
+                    <p class="lede">
+                      Today is the 27th of May as I start to write this. I am on an aeroplane somewhere above Maharashtra, India. The last time I sat down to write a piece in this style was maybe four years ago, back when I was busy being a student, with more opinions than evidence, and as tradition on those pieces dictates I am inclined to tell you what I am listening to at the moment. I am enjoying <em>Night, Blooming Jasmine</em> by fakemink. It loops well. Good for a flight.
+                    </p>
+
+                    <p>
+                      Ohh, I have noticed something at work over the last few months and I have been turning it over for a while before writing it down. The boring parts of my day are leaving. And I am going to miss them slightly, which surprised me, because I always assumed they were the parts I hated.
+                    </p>
+
+                    <p>
+                      Let me back up for you. My whole field rests on one trick, the same trick all of software rests on. You take something physical and unbearable to hold in your head all at once, electrons drifting through doped silicon, charge sloshing across a wire, and you hide it behind a clean interface that just behaves. You stop thinking about the electrons and start thinking about the gate. Then you hide the gates behind a module, the modules behind an architecture, all the way up. <a href="https://en.wikipedia.org/wiki/Mead%E2%80%93Conway_VLSI_chip_design_revolution" target="_blank" rel="noopener noreferrer">Carver Mead and Lynn Conway</a> wrote the rules for this around 1980 and it changed everything, because once you could express a chip as a tidy set of design rules, you no longer had to understand the fab to design the thing. A generation of what they called <a href="https://dl.acm.org/doi/10.5555/832285.835522" target="_blank" rel="noopener noreferrer">tall thin designers</a> appeared, people who could reason from the architecture down to the layout in one head. Then the field outgrew one head and we all became short and wide instead. Specialists. I own one slice. People like Morris Chang took the same trick and sawed the whole industry in two, design on one side, fabrication on the other, here, TSMC in the gap, and that single act of hiding was worth a few trillion dollars. The trick works. It is probably the most lucrative idea in the history of engineering.
+                    </p>
+
+                    <p>
+                      The boring work is what is leaving first. The boilerplate, the syntax I kept fumbling, the dull plumbing between the interesting decisions. Here is the bit I had never seen until this year: that tedium was not waste, it was where my head (actually) rested. Low-effort stretches sitting between the hard micro-architectural calls, and I never once clocked them as recovery because they wore the costume of work. There is a number I cannot shake, injury rates in the heavily automated fulfilment centres run around 7.7 per hundred workers against roughly 4.4 in the manual ones, and the gap is the walking. They engineered out the walking and people got hurt more, because the walking that looked like inefficiency and was actually the only rest built into the shift. Jevons said this in 1865 about coal in <a href="https://en.wikipedia.org/wiki/The_Coal_Question" target="_blank" rel="noopener noreferrer">The Coal Question</a>, make burning it more efficient and total use rises, never falls, because efficiency does not shrink the work, it grows the appetite for it. The slack always gets eaten. It just took me until now to internalise, that it was being eaten out of my own afternoons.
+                    </p>
+
+                    <p>
+                      And yet I would not give it back. Not for anything.
+                    </p>
+
+                    <p>
+                      Picture the near version of my job, not what I do today but what I can already feel coming. I hypothesise twenty microarchitecture combinations before lunch instead of one, different buffer depths, different cache eviction policies, different arbitration tiers, a fistful of credit schemes for who gets to send data next, and I hand the lot to an agent. It builds each one, runs the simulations, pushes them through synthesis, comes back with the timing, the area, the power, and quietly tells me which ones are even clean enough across clock and reset domains to bother closing, so I waste no thought on a design that was never going to work. The only part left is the part that was always mine, sitting with the numbers and asking whether this power-performance-area profile actually matches what our chip is going to be asked to do in the real product. Last year I worked out a six-way scheme for splitting memory traffic across channels by hand, an awkward non-power-of-two thing stitched out of two-way and three-way pieces, and it took real time. Soon I will throw fifty variants at the wall before the tea is cold. I am already partway there. For new features I have stopped waiting on the verification team's turnaround, I just ask Gemini to write me a testbench covering the edge cases and run the sanity checks myself.
+                    </p>
+
+                    <p>
+                      I am losing my grip on the mundane, and the mundane is where I learned the craft in the first place. Every awkward thing I ever debugged by hand taught me something the agent will now never make me learn. I feel that. But the feeling does not point backward, it points forward, because losing the mundane is exactly what is freeing the height. That is what got me looking up from my own desk. You see what this is. That is the tall thin designer coming back. The trick that broke us into specialists is the same trick about to let one person hold the whole stack in one head again, because the agent absorbs the width, and for the first time in decades, leaves the height to one person again. I find that genuinely thrilling. I take this trade every damn time.
+                    </p>
+
+                    <p>
+                      Once you have felt that happen to your own work, you cannot stop seeing the same shape everywhere, and you start asking how far it actually goes. Because what is changing for me is not that I am getting exponentially smarter. It is that the cost of trying something for me is dropping to almost nothing. And every time in history the cost of an attempt has collapsed, the thing it was attached to stopped being a craft and became a search. <a href="https://frontlinegenomics.com/the-100-genome-wheres-the-limit/" target="_blank" rel="noopener noreferrer">Sequencing a genome</a> cost the better part of three billion dollars in 2003 and runs about a hundred now, and the moment it got that cheap it became a throw everything at the wall and read the wall case. New bottlenecks became: the taste to know what is worth trying, and the bodies to actually run the attempts in the physical world. 
+                    </p>
+
+                    <p>
+                      The first of those, the taste, is the part I keep for myself. The second is the part I keep snagging on. Because in my work the attempts are simulations, they are made of information, and information is the one substance the abstraction trick was built to copy for free. But a drug interaction is not information. A new cathode chemistry is not information. A carbon-capture sorbent that survives ten thousand cycles is not information, it is a thing that has to be mixed and heated and measured ten thousand times. There is no API for that yet. And that, finally, is the thing I cannot stop thinking about, because it is the gap a body fills.
+                    </p>
+
+                    <p>
+                      So here is the line I have been drawing. Watch what is actually getting cheaper around us right now. Robot actuators are following their own quiet cost curve, the same way batteries fell roughly ninety percent in a decade while nobody outside the field noticed until the cars were suddenly everywhere. Small modular reactors are inching from regulatory PDF to poured concrete. A datacentre no longer needs to sit near a city because the work it does has no eyes and no commute. Put those three cheapening lines on the same chart and extend them, and they cross at a place that sounds like science fiction only because it has not finished arriving.
+                    </p>
+
+                    <p>
+                      It crosses somewhere far up in the Alaskan plains. A row of dark labs, no windows, no lights, because nothing inside has eyes that need them. Each one its own datacentre pod, the whole row fed by one small reactor humming in the cold. Inside, humanoids working around the clock and in parallel on the grinding, unglamorous, patient labour that no single human life is long enough to do properly, screening pharmaceutical mixtures, cycling battery chemistries, iterating on the diseases we have been almost-solving for fifty years. The search that biology and materials became the moment the experiment got cheap, finally run by something that does not tire and does not need the walking. Not because a machine deserves the work more than a person, but because the work was never the part a person was for.
+                    </p>
+
+                    <div class="sep">• • •</div>
+
+                    <p>
+                      Now, I want to think about the far side of that picture badly, on purpose. Because here is a thing I have started to believe. The people who get the future of robots and work right will almost certainly not be the experts. I have been reading a fair bit of <a href="https://ig.ft.com/sites/business-book-award/books/2022/shortlist/the-power-law-by-sebastian-mallaby/">Sebastian Mallaby</a> this year, and the line of his that has lodged itself in me is that revolutions rarely come from the incumbents who understand the present too well. The expert knows precisely what is impossible today, and that knowledge is exactly the shackle. So I want to do the undisciplined thing here and think about a society with these machines in it without first asking permission from what is currently buildable. Treat the next few paragraphs as a free man's daydream, not an engineer's roadmap.
+                    </p>
+
+                    <p>
+                      Start with the oldest worry, the one <a href="https://www.theguardian.com/business/2008/sep/01/economics">Keynes</a> had in 1930 when he wrote about technological unemployment and the fifteen-hour week that never came. He was not wrong about the productivity, he was wrong about what we would do with it, because we took the surplus as more stuff instead of more time. That is the Jevons appetite again, wearing a Sunday suit. So the real question a robot society poses is not whether there is enough work, it is whether we can finally break the reflex of converting every gain in capacity straight back into consumption and busyness. I am not sure we can. But for once the lever might be big enough to force the question.
+                    </p>
+
+                    <p>
+                      Then there is the problem nobody likes to say out loud, which <a href="https://archive.blogs.harvard.edu/nobleleisure/aristotle-on-work-vs-leisure/">Aristotle</a> of all people said first, that a man's character is formed by what he does with his leisure, not his labour. We have spent a few thousand years organising entire selves around scarcity and toil, and we are weirdly bad at the alternative. Look at how lottery winners and early retirees often come apart, look at the strange listlessness of abundance. There is an idea I keep circling, the hedonic treadmill, that we adapt to any improvement in our conditions and return to a baseline, which means a robot utopia handed to us flat would feel, within a year, like Tuesday. So the world worth wanting is not the one where the machines simply remove the work. It is the one where removing the work returns us to the older, harder, better question of what a life is actually for, and forces each person to answer it themselves instead of having the answer pre-filled by a job.
+                    </p>
+
+                    <p>
+                      My honest guess at the answer, the one I want for myself, is the thing humans were doing before we got so busy. Trying to understand how any of this came to be here at all. Reaching off the planet, not for resources but because the reaching is the point. Making and looking at art. Doing the kind of science you do because it is beautiful rather than because it is overdue. There is a lovely phrase from the old contemplative traditions, the idea that the highest activity is the one done entirely for its own sake and not for any further end. We outsourced that to weekends and called it a hobby. A society with the grind handed off is a society that could put it back at the centre, where the philosophers always insisted it belonged. The robots do the necessary. The humans, for the first time at scale, get to do the unnecessary, which turns out to be everything that ever mattered.
+                    </p>
+
+                    <p>
+                      And that is the question the whole thing actually comes down to for me, the genuinely personal one. If that is where the lines cross, what do I want my one short attention spent on while those labs run? I would like to be one of the people who built the thing that holds them together, the interconnect, the coherence, the fabric that lets a thousand of those bodies act like one mind instead of a thousand confused ones. That is not a daydream about a robot folding my laundry, though fine, that too. It is the most direct version I can find of the work I am already doing, just pointed at the floor that still matters instead of the one that already got abstracted away. Build the nervous system for the things that do the necessary, so the rest of us can finally get to the unnecessary.
+                    </p>
+
+                    <div class="sep">• • •</div>
+
+                    <p>
+                      The world is going to misread the speed of all this, in the most boring way possible. It will happen slowly. <a href="https://en.wikipedia.org/wiki/Roy_Amara" target="_blank" rel="noopener noreferrer">Amara's law</a>, we overestimate a technology in the short run and underestimate it in the long. Electrification is the cleanest example. Factories had electric motors for roughly forty years before they showed up in the productivity numbers, because at first they just unbolted the one giant steam engine and bolted in one giant electric motor in the same spot, same layout, same everything. The gain only arrived when somebody realised you could put a small motor on every machine and redesign the whole floor around that idea. The technology was there in the 1890s, the payoff was the 1920s. <a href="https://en.wikipedia.org/wiki/Productivity_paradox" target="_blank" rel="noopener noreferrer">Solow's old line</a>, that you see the computer age everywhere except in the productivity statistics, is the same lag in a different decade. We are in the unbolting phase right now, using agents to do the old job a bit faster. The redesign, one tall thin engineer holding what used to be a team, the dark labs in the north running while we sleep, has not landed. And when it does it will not feel like a thunderclap. It will feel like a Tuesday that was somehow twice the Tuesday before, then another, until the curve is vertical behind you and nobody can quite say when it turned.
+                    </p>
+
+                    <p>
+                      There is an old <a href="https://en.wikipedia.org/wiki/Lord%E2%80%93bondsman_dialectic">Hegel</a> idea I keep coming back to here, the master and the bondsman. The master hands off all the labour and slowly loses his grip on the real, while the one actually doing the work is the one who keeps growing through it. I do not read that as a warning so much as an instruction about which work to give away and which to keep. Hand off the grind, the screening, the plumbing, the fifty variants, the ten thousand cycles. That is exactly what it is for. But the part where I look at the numbers and decide what the chip is actually for, the taste, the why, the choosing of what is worth trying, that is the bondsman's share, the part you grow through. That is the part I never want to delegate, in my work or in those labs. Keep the thinking. Give away everything that was only ever waiting.
+                    </p>
+
+                    <p>
+                      Anyway, that is roughly where my head is. I will miss the boring afternoons a little, which I feel slightly stupid admitting. But tall and thin again, the whole stack in one head, drawing the lines until they cross somewhere cold and dark and glowing faintly with work that frees the rest of us for the sky. Come on. I would not be anywhere else. (ahh, what a time.)
+                    </p>
+
+                    </div>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+              <tbody>
+                <tr>
+                  <td style="padding:20px;width:100%;">
+                    <p class="backlink"><a href="index.html">← Back to home</a></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+              <tbody>
+                <tr>
+                  <td style="padding:0px">
+                    <br>
+                    <p style="text-align:right;font-size:small;">
+                      Last updated on <span id="last-updated"></span>.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      (function () {
+        const d = new Date(document.lastModified);
+        document.getElementById("last-updated").textContent =
+          d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+      })();
+    </script>
+
+  </body>
+</html>
