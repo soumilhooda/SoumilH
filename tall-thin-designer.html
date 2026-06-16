@@ -132,32 +132,10 @@
                 </tr>
               </tbody>
             </table>
-
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
-                <tr>
-                  <td style="padding:0px">
-                    <br>
-                    <p style="text-align:right;font-size:small;">
-                      Last updated on <span id="last-updated"></span>.
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
           </td>
         </tr>
       </tbody>
     </table>
-
-    <script>
-      (function () {
-        const d = new Date(document.lastModified);
-        document.getElementById("last-updated").textContent =
-          d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
-      })();
-    </script>
 
   </body>
 </html>
