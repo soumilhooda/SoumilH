@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <title>Frozen In Metal</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="stylesheet.css?v=4" rel="stylesheet" type="text/css"/>
+    <link
+      href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌐%3C/text%3E%3C/svg%3E"
+      rel="icon"/>
+  </head>
+  <body>
+    <main class="page">
+      <header class="article-header">
+        <h1 class="article-title">Frozen In Metal</h1>
+      </header>
+
+      <article class="essay">
+        <p>
+          I participated in a recent beta software drop on my personal phone, and have been taking their latest AI assistant for a run. A few minutes into having it draft a long reply on device, the back of the chassis goes warm past
+          comfort and the work ever
+          so quietly
+          relocates to a server. Luckily I know why it gets hot, which is a peculiar sort of professional consolation. Facile understanding would pin it on the multiply-accumulate operations at the centre of that generated text, and for a short
+          summary of a long thread it would be right, since reading the input is compute bound and over quickly. Once the model is writing rather than reading,
+          the actual expensive part is the parameters pulling out of the LPDDR, and moving them just a few millimetres across the interconnect into the compute array, and then doing it again for the next token, because a phone has one user and
+          therefore a batch size of one. Unlike a data centre that spreads the fetch across hundreds of concurrent requests and pays the memory traffic once on behalf of all of them, a phone pays in full for every token, and the currency it pays in
+          is heat against my palm (ouch). Adding to misery the arithmetic that produced that heat is not a software defect anyone can patch.
+        </p>
+
+        <p>
+          Three things arrived over the last few months and I have not managed to read any of them independently of the other two. The first was a talk at ISCAS in Shanghai in May by Xia Jing, who architects Huawei's Kunpeng and Ascend lines. The second was a line in the Kimi
+          K3 <a href="https://www.kimi.com/blog/kimi-k3">[Kimi]</a><a href="https://news.ycombinator.com/item?id=48939859">[YComb]</a> release describing a single forty-eight hour autonomous run in which the model designed, optimised and verified an
+          inference chip for a nano model built on its own architecture. The third was Taalas <a href="https://taalas.com/">[Taalas]</a><a href="https://news.ycombinator.com/item?id=47103661">[YComb]</a>, which takes an eight billion parameter model
+          and commits its weights to mask ROM, so the parameters become part of the physical die and cannot afterwards be changed. I got a bit of time today to amalgamate them together and so this reads.
+        </p>
+
+        <p>
+          Xia's talk is the one that rearranged the other two for me. His premise is that the industry has been reading its own history through the wrong variable. Every gain we have ever booked as a shrink also arrived as a gain in time, since
+          smaller devices switch faster and shorter wires respond faster. A shrink bought other things as well, cost per transistor above all, and none of those reduce to delay, but delay is the one term still purchasable by other
+          means. Space has stopped yielding on any economic basis, and time has not, which leaves folding as the
+          available axis: reorganise logic so that signals travel less far, at every level of the hierarchy. He calls the principle the τ law <a href="https://www.huawei.com/en/news/2026/5/ieee-iscas-tau-scaling">[Huawei]</a><a
+          href="https://substack.com/home/post/p-199459221">[CRC]</a> and the practice logic folding, and he demonstrates it three times. 1. At system level, a custom bus collapses the all-to-all storm of a mixture-of-experts model, where ninety-six
+          per cent of the messages are two-byte notifications telling an expert it was not selected, into ordinary processor store operations against a global address, which brings communication overhead down to twenty-three per cent of inference
+          time against an industry norm above forty. 2. At chip level, stacking CPU cores face to face over the memory and interconnect layer produces around a hundred times the connection count that perimeter bumps allow, with a single synchronous
+          clock domain across eight hundred square millimetres. 3. At circuit level, a project called Tiramisu takes the existing Kunpeng 950 core, changes nothing in the source, folds the planar logic vertically, and recovers 568 MHz, of which a
+          hundred comes purely from a shorter clock tree. These are keynote numbers from a vendor with an unusually strong interest in the conclusion that access to a leading logic node has stopped being decisive, and they should be read that
+          way. Being motivated to believe something does not make it wrong, and the argument survives a generous discount on all three figures.
+        </p>
+
+        <p>
+          Having soaked that in if you chose to bring this frame over, Taalas, the one workload whose parameters never change may start looking like an application for τ law. Working from their public numbers, the density is around six and a half
+          transistors per four-bit parameter, which puts fifty-three billion transistors into roughly eight hundred square millimetres at 6nm. The multiply appears to be done by precomputing all sixteen possible products of an activation with a
+          four-bit weight, broadcasting them, and using a hardwired mesh to select the correct one, so the recurring per-weight cost is an access transistor and a via rather than an arithmetic unit. A small SRAM sidecar carries the KV cache and
+          whatever adapter-scale fine tuning is permitted. Weight has become wiring!
+        </p>
+
+        <p>
+          But! The Taalas die is flat, and Xia's argument is that a flat sheet is the wrong shape. Eight hundred square millimetres is a reticle-limited plane and it holds a structure whose connectivity is fixed at tapeout. How about a version that is
+          two dies bonded face to face, a weight ROM below and the compute array above. The ROM does not need a leading logic node and does not need to switch quickly; it needs density and short vertical paths to the arithmetic sitting on top of it,
+          which is precisely the pairing that face-to-face bonding rewards. Stacking concentrates power into a smaller volume, and on a phone the binding constraint is thermal rather than area, so the proposal has to answer the objection it was
+          built to solve. It does, because of what is being stacked. Reading a weight out of an adjacent mask ROM costs a small fraction of the energy of the LPDDR access it replaces, and the compute layer above does no more arithmetic than one
+          token requires, so the stack removes a great deal more power from the budget than the bonding concentrates. And a frozen model is a better candidate for folding than a CPU, because a CPU's critical paths are discovered late and vary by workload, while the connection pattern between
+          a weight and its multiplier is known completely at design time and can be routed once, optimally, with no allowance for generality. Huawei is folding logic that has to remain flexible. Frozen weights have no such obligation.
+        </p>
+
+        <p>
+          In comes Moonshot’s Kimi with a great economic angle. Four square millimetres on a 45nm open library closing timing at 100 MHz is, by the standards of any production flow, a teaching exercise; one YComb commenter ran the area scaling and
+          concluded the served model is on the order of a few million parameters, which is close to nothing. There is no design-for-test in that flow, no IR drop or electromigration signoff, no packaging, no silicon. Important point here, still, is
+          the human less loop, from architecture through RTL, synthesis, place and route, timing and functional verification, in two days. I have spent longer than that on a single path. So why care? Not because the two days extrapolate, since
+          verification effort scales superlinearly with complexity and a 45nm toy says nothing about signing off eight hundred square millimetres of stacked logic. What it establishes is narrower and still worth something, that the loop can be
+          closed with nobody in it. The cost of freezing a model is dominated by
+          design and verification labour and by mask sets, and if the intention is a different mask set for every model that ships, labour is the term that has to fall first. Fabrication lead times will not compress, since they are physical and
+          serial and measured in quarters. Design labour is neither of those things, and it is exactly the sort of cost that these systems have attacked first everywhere else. What autonomy does not touch is the mask set, which at 6nm runs to the
+          high single digit millions of dollars and stays there however cheaply the RTL was written, and that number is the reason a per-model tapeout at a leading node is not the shape this takes.
+        </p>
+
+        <p>
+          In a world where we have commoditised LLM models and serious improvement moves to a cycle of years rather than months we can choose to freeze models at hardware, quick and efficiently. This frozen model belongs in the device as much as in
+          the data centre. Batching is the data centre's answer to the memory wall: read each weight once and use it for many users. That answer is structurally unavailable on a personal device, where there is one user and no queue to amortise
+          against. The relative advantage of weight-stationary silicon is therefore largest precisely where batching is impossible, and a 250W card sitting in a 2.5kW server is competing in the one environment where its advantage could be smaller.
+        </p>
+
+        <p>
+          The area arithmetic for a phone is sobering but not fatal. A flagship mobile SoC runs somewhere between a hundred and a hundred and forty square millimetres, and a block claiming more than a tenth of that has to displace something already
+          promised to a product team. At Taalas density, a millimetre squared holds around ten million parameters. Two nodes of improvement plus a stacked ROM layer might take that to thirty or forty million. Fifteen square millimetres of projected
+          area then holds a few hundred million parameters, which is not an assistant of any kind. It is an excellent speech recogniser, a competent translation model, a vision encoder, a text embedding model, a natural sounding voice. The first
+          frozen neural block in a consumer device will therefore be a perceptual front end, and the history of consumer silicon says the same thing from the other direction. We have hardened every workload that started plateauing, from JPEG to H.264
+          to HEVC and AV1 to the ISP pipeline to audio DSP. The condition for hardening was that the specification stopped changing, and video content changed daily while the bitstream syntax held still for a decade. The equivalent question for
+          models is which layer has actually frozen: weights turn over monthly, the transformer has changed remarkably little in its essentials since 2017, and the tokeniser and embedding boundary changes less than either. A base die that hardens the
+          architecture and mask-programs the weights in top metal is the old 1980s structured ASIC answer to that split. Make weight refresh a metal respin and an architecture change a new base die, and it prices the two very differently: a
+          handful of metal layers plus requalification is a low seven figure exercise against the high seven figures of a full set, an order of magnitude between refreshing a model and redesigning one. The yield arithmetic separates them the same
+          way, because a ROM array whose contents tolerate a few wrong bits survives defects that would kill fifty-three billion transistors of logic, and on a reticle-limited die that is the difference between a product and a demonstration.
+        </p>
+
+        <p>
+          Two objections seem serious to me. The first is the NPU, which is the cautionary case this industry has already lived through. Phones and laptops shipped neural accelerators before the workload settled, software teams routed around them to
+          the GPU because the GPU was programmable and the accelerator's operator support aged badly, and a great deal of that silicon is dark today. Freezing a model is the same bet (as it looks, today) with a shorter fuse, and the discipline it
+          demands is to freeze only the part of the stack where the operator set has stopped moving, while keeping a programmable path alive alongside it so that a stale block degrades into a slower feature instead of a completely missing one. The
+          second objection is sparsity. A mixture-of-experts model turns weight-stationary compute back into a memory lookup, since a small active MAC block sits beside a very large store of mostly idle parameters, and at that ratio a dense memory
+          process beats logic-adjacent mask ROM and pushes the whole design back toward chiplets and DRAM. As it seems today the industry's efficiency trend runs toward sparsity, and sparsity runs against freezing. The one qualification I would offer
+          is that the ratio looks different at the device, where batch is one and the model is small and dense for reasons of latency and memory that have nothing to do with this argument. The frozen block is a bet on small dense models, which is a
+          poor bet for a data centre and a reasonable one for a phone.
+        </p>
+
+        <p>
+          Extrapolated outward, the categories that matter sort themselves on two tests, whether the latency is worth paying silicon for and whether the specification has stopped moving. Earbuds and watches pass the first, because conversational
+          turn taking tolerates a couple of hundred milliseconds in total and a network round trip with radio wake-up consumes a meaningful fraction of that before the first token exists. Cars are the instructive case because the two tests
+          disagree, the incentive being strongest where the loop is latency-bound and safety-certified and the stability condition weakest where driving policies are still moving every few months. Doorbells, dashcams, appliances and toys fall out
+          of the same two questions without needing separate arguments. The through line is that capability
+          stops being metered. Independence from the server overlords! A frozen model is a good rather than a service, with a bill-of-materials cost and no marginal token cost, and the natural commercial form for that is the one codecs already found:
+          per-unit royalties paid by the OEM to whoever owns the weights. The tell here I am waiting for is not a product launch. I am quite confident of that. I am waiting for the first published per-unit licence rate for a set of weights, which
+          will say more about where this is going than any benchmark.
+        </p>
+
+        <p>
+          Patching frozen weights is the biggest concern here. Nearly everything the field has built around deployed models assumes the weights remain reachable, since safety corrections, factual updates and jailbreak mitigations all ship as new
+          parameters. A device with its weights in metal keeps what it left the fab with for its entire service life, and the only mutable surfaces here are the adapter SRAM and the software wrapped around the block. That cuts in both directions,
+          because the same property means no silent capability change, no remote revocation and no dependence on a vendor's continued interest, which is the strongest durability and privacy story anyone has offered for these systems (wink, wink,
+          recent events). I do not think the industry has worked through what it means to ship an unpatchable model into fifty million pockets, and I expect the first serious argument about it to be regulatory rather than technical.
+        </p>
+
+        <p>
+          What keeps me on this side of the argument is that the thing making my phone warm is not a shortcoming in the model or the compiler or the scheduler. It is the distance a parameter has to travel to reach the circuit that needs it, several
+          billion times a minute, and distance is the one problem this industry has just remembered how to attack.
+        </p>
+      </article>
+
+      <footer class="colophon">
+        Last updated <span id="last-updated"></span>
+      </footer>
+    </main>
+
+    <script>
+      (function () {
+        const d = new Date(document.lastModified);
+        document.getElementById("last-updated").textContent =
+          d.toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+      })();
+    </script>
+  </body>
+</html>
