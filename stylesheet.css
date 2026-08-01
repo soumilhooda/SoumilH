@@ -243,14 +243,6 @@ section { margin-top: 48px; }
   .portrait img { filter: grayscale(0%); }
 }
 
-/* ============================================================
-   Essay additions — article titles, section breaks, formulas,
-   data tables, message quotes, embeds.
-   Added for "Three Clocks"; all built from existing tokens.
-   Also styles the titles on Frozen In Metal / Yield-Seeking
-   (previously default browser h1) — remove this block to revert.
-   ============================================================ */
-
 .article-header { margin: 0 0 34px; }
 .article-title {
   margin: 0;
