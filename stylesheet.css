@@ -242,3 +242,92 @@ section { margin-top: 48px; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .portrait img { filter: grayscale(0%); }
 }
+
+/* ============================================================
+   Essay additions — article titles, section breaks, formulas,
+   data tables, message quotes, embeds.
+   Added for "Three Clocks"; all built from existing tokens.
+   Also styles the titles on Frozen In Metal / Yield-Seeking
+   (previously default browser h1) — remove this block to revert.
+   ============================================================ */
+
+.article-header { margin: 0 0 34px; }
+.article-title {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: -.02em;
+  line-height: 1.08;
+}
+
+.essay .sep {
+  text-align: center;
+  margin: 34px 0;
+  color: var(--faint);
+  letter-spacing: 8px;
+  font-size: 11px;
+}
+
+.essay .eq {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 22px 0;
+  padding: 12px 16px;
+  border-left: 2px solid var(--line);
+  background: var(--line-soft);
+}
+.essay .eq sub { font-size: .82em; }
+.essay .eq .note { color: var(--muted); }
+
+.essay table.data {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-family: var(--serif);
+  font-size: 14px;
+}
+.essay table.data th,
+.essay table.data td {
+  border-bottom: 1px solid var(--line-soft);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.essay table.data thead th {
+  border-bottom: 1.5px solid var(--ink);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: .01em;
+}
+.essay table.data td.num,
+.essay table.data th.num {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+.essay table.data caption {
+  caption-side: bottom;
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .02em;
+  color: var(--faint);
+  text-align: left;
+}
+
+.essay .texts {
+  margin: 22px 0;
+  padding-left: 16px;
+  border-left: 2px solid var(--line);
+}
+.essay .texts p { margin: 6px 0; color: var(--muted); }
+
+.essay .twitter-tweet { margin: 24px auto !important; }
+
+@media (min-width: 640px) {
+  .article-title { font-size: 34px; }
+}
