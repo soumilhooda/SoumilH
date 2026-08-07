@@ -787,3 +787,129 @@ blockquote.texts cite,
     font-size: 11.5px;
   }
 }
+/* ---------- figure lightbox ---------- */
+.essay figure img.lb-trigger {
+  cursor: zoom-in;
+}
+
+.essay figure img.lb-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+html.lb-open,
+html.lb-open body {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.lb-overlay {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 3.25rem 1rem 1.25rem;
+  background: rgba(23, 25, 30, 0.94);
+}
+
+.lb-overlay[hidden] {
+  display: none;
+}
+
+.lb-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+
+.lb-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  max-width: none;
+  max-height: none;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.45);
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.lb-overlay.can-zoom .lb-img { cursor: zoom-in; }
+.lb-overlay.can-zoom.is-zoomed .lb-img { cursor: grab; }
+
+.lb-cap,
+.lb-hint {
+  flex: 0 0 auto;
+  max-width: 46rem;
+  margin: 0;
+  text-align: center;
+}
+
+.lb-cap {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #cfd3d9;
+}
+
+.lb-hint {
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: #7f868f;
+}
+
+.lb-cap[hidden] { display: none; }
+
+.lb-close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.9rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #e8eaed;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.lb-close:hover,
+.lb-close:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  .lb-overlay { padding: 3rem 0.5rem 0.9rem; gap: 0.5rem; }
+  .lb-cap { font-size: 0.75rem; }
+  .lb-hint { font-size: 0.68rem; }
+}
+
+/* ---------- ordered list inside an essay ---------- */
+.essay ol {
+  margin: 1.15rem 0;
+  padding-left: 1.6rem;
+}
+
+.essay ol li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.essay ol li:last-child {
+  margin-bottom: 0;
+}
