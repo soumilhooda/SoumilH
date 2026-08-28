@@ -913,3 +913,229 @@ html.lb-open body {
 .essay ol li:last-child {
   margin-bottom: 0;
 }
+
+/* ============================================================
+   Embedded PDF slide excerpts
+   Each viewer renders only the selected pages from one deck.
+   ============================================================ */
+
+.math {
+  white-space: nowrap;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.essay .slide-cite {
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: .74em;
+  letter-spacing: -.02em;
+}
+
+.pdf-deck {
+  margin: 28px 0 32px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(23, 25, 30, .07);
+}
+
+.pdf-deck__bar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 13px;
+  min-height: 45px;
+  padding: 8px 11px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.pdf-deck__name {
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+.pdf-deck__pages {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pdf-deck__pages::before {
+  content: "slide";
+  margin-right: 2px;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.pdf-deck__pages button {
+  min-width: 29px;
+  height: 27px;
+  padding: 0 7px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  line-height: 25px;
+  text-align: center;
+  transition:
+    border-color .16s ease,
+    background-color .16s ease,
+    color .16s ease;
+}
+
+.pdf-deck__pages button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.pdf-deck__pages button[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.pdf-deck__pages button:disabled {
+  cursor: wait;
+  opacity: .72;
+}
+
+.pdf-deck__open {
+  background-image: none !important;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.pdf-deck__open:hover,
+.pdf-deck__open:focus-visible {
+  color: var(--accent);
+}
+
+.pdf-deck__stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      105deg,
+      #f1f2f3 25%,
+      #fafafa 45%,
+      #f1f2f3 65%
+    );
+}
+
+.pdf-deck__stage canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  background: #fff;
+  transition: opacity .18s ease;
+}
+
+.pdf-deck__stage.is-ready canvas {
+  opacity: 1;
+}
+
+.pdf-deck__status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0 !important;
+  padding: 18px;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 10.5px !important;
+  letter-spacing: .02em;
+  text-align: center;
+}
+
+.pdf-deck__stage.is-ready .pdf-deck__status {
+  display: none;
+}
+
+.pdf-deck__stage.has-error {
+  background: var(--line-soft);
+}
+
+.pdf-deck figcaption {
+  padding: 9px 11px 10px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+.memory-table-wrap {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.memory-table {
+  min-width: 900px;
+}
+
+.memory-table th:first-child,
+.memory-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 126px;
+  background: var(--paper);
+}
+
+.memory-table thead th:first-child {
+  z-index: 2;
+}
+
+.memory-table td:not(:first-child) {
+  min-width: 178px;
+}
+
+.memory-table .slide-cite {
+  font-size: 9.5px;
+}
+
+@media (max-width: 639px) {
+  .pdf-deck__bar {
+    grid-template-columns: 1fr auto;
+    gap: 7px 10px;
+  }
+
+  .pdf-deck__name {
+    align-self: center;
+  }
+
+  .pdf-deck__pages {
+    justify-self: end;
+  }
+
+  .pdf-deck__open {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .pdf-deck figcaption {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pdf-deck__stage canvas,
+  .pdf-deck__pages button {
+    transition: none;
+  }
+}
