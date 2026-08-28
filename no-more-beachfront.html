@@ -1,28 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta
-      name="description"
-      content="Notes from Hot Chips 2026 on the memory wall, 3D-DRAM, HBM base dies, hybrid bonding, and High-Bandwidth Flash."
-    />
-    <title>No More Beachfront</title>
-    <link href="stylesheet.css?v=5" rel="stylesheet" type="text/css"/>
-    <link
-      href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌐%3C/text%3E%3C/svg%3E"
-      rel="icon"
-    />
-  </head>
-
-  <body>
-    <main class="page">
-      <header class="article-header">
-        <h1 class="article-title">No More Beachfront</h1>
-      </header>
-
-      <article class="essay">
-        <p>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Notes from Hot Chips 2026 on the memory wall, 3D-DRAM, HBM base dies, hybrid bonding, and High-Bandwidth Flash." name="description"/>
+<title>No More Beachfront</title>
+<link href="stylesheet.css?v=5" rel="stylesheet" type="text/css"/>
+<link href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌐%3C/text%3E%3C/svg%3E" rel="icon"/>
+<style>
+.pdf-deck__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+</style></head>
+<body>
+<main class="page">
+<header class="article-header">
+<h1 class="article-title">No More Beachfront</h1>
+</header>
+<article class="essay">
+<p>
           It has been a busy few weeks, with travel and late work nights,
           but most importantly, Hot Chips 2026. This was my first time attending live
           and, boy, what a year to attend. A quick thanks to Srinija for the
@@ -30,398 +29,355 @@
           priority-ordered brain dump was needed. Call it cache eviction. So here we
           go.
         </p>
-
-        <p>
+<p>
           While accelerator throughput scales at
-          <span class="math">3&times; every two years</span>, High Bandwidth Memory
+          <span class="math">3× every two years</span>, High Bandwidth Memory
           (HBM) bandwidth advances at less than
-          <span class="math">2&times; every two years</span>
-          <a class="slide-cite" href="pdfs/HC2026.MicronTechnology.RaghuSreeramaneni.v03.pdf#page=3" target="_blank" rel="noopener">[Micron, 3]</a>.
+          <span class="math">2× every two years</span>
+<a class="slide-cite" href="images/HC2026.MicronTechnology.RaghuSreeramaneni.v03_p003.png" rel="noopener" target="_blank">[Micron, 3]</a>.
           Standard 2.5D interposer integration is encountering hard physical barriers
           in beachfront area, I/O power dissipation and thermal management
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=5" target="_blank" rel="noopener">[d-Matrix, 5]</a>
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=6" target="_blank" rel="noopener">[d-Matrix, 6]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p005.png" rel="noopener" target="_blank">[d-Matrix, 5]</a>
+<a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p006.png" rel="noopener" target="_blank">[d-Matrix, 6]</a>.
           What follows are my quick notes on the tutorial proceedings across advanced logic base
           dies in HBM
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=6" target="_blank" rel="noopener">[Samsung, 6]</a>
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=7" target="_blank" rel="noopener">[Samsung, 7]</a>,
+          <a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p006.png" rel="noopener" target="_blank">[Samsung, 6]</a>
+<a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p007.png" rel="noopener" target="_blank">[Samsung, 7]</a>,
           monolithic 3D-DRAM accelerators
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=17" target="_blank" rel="noopener">[d-Matrix, 17]</a>,
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p017.png" rel="noopener" target="_blank">[d-Matrix, 17]</a>,
           and High-Bandwidth Flash (HBF) tiering
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=2" target="_blank" rel="noopener">[OXMIQ, 2]</a>
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=4" target="_blank" rel="noopener">[OXMIQ, 4]</a>.
+          <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p002.png" rel="noopener" target="_blank">[OXMIQ, 2]</a>
+<a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p004.png" rel="noopener" target="_blank">[OXMIQ, 4]</a>.
         </p>
-
-        <p>
+<p>
           First, let us build an understanding of the physical and thermodynamic limits of HBM. Generative inference
           execution is partitioned into a compute-bound prompt prefill phase and a
           memory-bandwidth-bound autoregressive decode phase
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=10" target="_blank" rel="noopener">[d-Matrix, 10]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p010.png" rel="noopener" target="_blank">[d-Matrix, 10]</a>.
           As context lengths reach 1M tokens, the key-value (KV) cache footprint
           expands rapidly: 14.6 GB per user for Kimi K3 at 1M context, totaling
           approximately 935 GB across a batch of 64 users
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=2" target="_blank" rel="noopener">[d-Matrix, 2]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p002.png" rel="noopener" target="_blank">[d-Matrix, 2]</a>.
           Runtime profiling across frontier models such as GLM 5.2 and Kimi K3
           demonstrates that the decode stage consumes the vast majority of wall-clock
           execution time.
           Consequently, service interactivity (tokens/s/user) and throughput are
           directly gated by memory bandwidth and data-movement energy
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=11" target="_blank" rel="noopener">[d-Matrix, 11]</a>
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=5" target="_blank" rel="noopener">[OXMIQ, 5]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p011.png" rel="noopener" target="_blank">[d-Matrix, 11]</a>
+<a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p005.png" rel="noopener" target="_blank">[OXMIQ, 5]</a>.
         </p>
-
-        <p>
+<p>
           Standard 2.5D silicon interposer integration cannot scale to meet these
           demands.
           Dedicated beachfront along the compute-die perimeter restricts package
           placement to four to eight HBM stacks, capping practical HBM4 bandwidth at
           approximately 20 TB/s on contemporary packages
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=5" target="_blank" rel="noopener">[d-Matrix, 5]</a>.
-          Driving wide 2.5D interposer traces requires 2.0&ndash;3.0 pJ/bit in HBM4,
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p005.png" rel="noopener" target="_blank">[d-Matrix, 5]</a>.
+          Driving wide 2.5D interposer traces requires 2.0–3.0 pJ/bit in HBM4,
           with an additional approximately 3 pJ/bit expended on on-chip distribution
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=8" target="_blank" rel="noopener">[d-Matrix, 8]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p008.png" rel="noopener" target="_blank">[d-Matrix, 8]</a>.
           Sustaining a 100 TB/s memory stream over 2.5D HBM links requires
-          1.92&ndash;2.4 kW purely for memory I/O
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=6" target="_blank" rel="noopener">[d-Matrix, 6]</a>.
+          1.92–2.4 kW purely for memory I/O
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p006.png" rel="noopener" target="_blank">[d-Matrix, 6]</a>.
         </p>
-
-        <p>
+<p>
           Heterogeneous packaging also introduces severe reliability vulnerabilities.
           Thermal-expansion, or coefficient-of-thermal-expansion (CTE), mismatches
           across silicon, microbumps and organic substrates generate mechanical stress
-          <a class="slide-cite" href="pdfs/HC2026.MicronTechnology.RaghuSreeramaneni.v03.pdf#page=14" target="_blank" rel="noopener">[Micron, 14]</a>.
+          <a class="slide-cite" href="images/HC2026.MicronTechnology.RaghuSreeramaneni.v03_p014.png" rel="noopener" target="_blank">[Micron, 14]</a>.
           Telemetry from Meta's training clusters indicates that GPU HBM3 memory
           failures accounted for 17.2% of all unexpected hardware interruptions during
           Llama 3 405B pre-training
-          <a class="slide-cite" href="pdfs/HC2026.MicronTechnology.RaghuSreeramaneni.v03.pdf#page=14" target="_blank" rel="noopener">[Micron, 14]</a>.
+          <a class="slide-cite" href="images/HC2026.MicronTechnology.RaghuSreeramaneni.v03_p014.png" rel="noopener" target="_blank">[Micron, 14]</a>.
           To stack beyond sixteen dies, or greater than 16Hi, packaging must shift from
           Mass Reflow Molded Underfill (MR-MUF) and Thermo-Compression Non-Conductive
           Film (TC-NCF) to direct Hybrid Copper Bonding (HyB)
-          <a class="slide-cite" href="pdfs/HC2026.SK%20hynix.Jaesik_FINAL1.pdf#page=13" target="_blank" rel="noopener">[SK hynix, 13]</a>.
-          HyB eliminates solder microbump gaps (&ldquo;Zero Gap&rdquo;), reducing TSV
-          bump pitch below 10&ndash;18 &micro;m while delivering up to a 35% reduction
+          <a class="slide-cite" href="images/HC2026.SK_hynix.Jaesik_FINAL1_p013.png" rel="noopener" target="_blank">[SK hynix, 13]</a>.
+          HyB eliminates solder microbump gaps (“Zero Gap”), reducing TSV
+          bump pitch below 10–18 µm while delivering up to a 35% reduction
           in normalized thermal resistance in 20-high configurations
-          <a class="slide-cite" href="pdfs/HC2026.SK%20hynix.Jaesik_FINAL1.pdf#page=14" target="_blank" rel="noopener">[SK hynix, 14]</a>.
+          <a class="slide-cite" href="images/HC2026.SK_hynix.Jaesik_FINAL1_p014.png" rel="noopener" target="_blank">[SK hynix, 14]</a>.
         </p>
+<figure class="pdf-deck" data-deck="Micron">
+<div class="pdf-deck__bar">
+<span class="pdf-deck__name">Micron</span>
+<div aria-label="Choose a Micron slide" class="pdf-deck__pages" role="group">
+<button aria-pressed="true" data-image="images/HC2026.MicronTechnology.RaghuSreeramaneni.v03_p003.png" data-page="3" type="button">3</button>
+<button aria-pressed="false" data-image="images/HC2026.MicronTechnology.RaghuSreeramaneni.v03_p014.png" data-page="14" type="button">14</button>
+</div>
 
-        <figure class="pdf-deck" data-deck="Micron" data-pdf="pdfs/HC2026.MicronTechnology.RaghuSreeramaneni.v03.pdf">
-          <div class="pdf-deck__bar">
-            <span class="pdf-deck__name">Micron</span>
-            <div class="pdf-deck__pages" role="group" aria-label="Choose a Micron slide">
-              <button type="button" data-page="3" aria-pressed="true">3</button>
-              <button type="button" data-page="14"aria-pressed="false">14</button>
-            </div>
-            <a class="pdf-deck__open" href="pdfs/HC2026.MicronTechnology.RaghuSreeramaneni.v03.pdf#page=3" target="_blank" rel="noopener">open slide&nbsp;&nearr;</a>
-          </div>
-          <div class="pdf-deck__stage">
-            <canvas role="img" aria-label="Micron slide 3 showing the widening memory wall"></canvas>
-            <p class="pdf-deck__status" aria-live="polite">Rendering slide&hellip;</p>
-          </div>
-        </figure>
+</div>
+<div class="pdf-deck__stage"><img alt="Micron slide 3 showing the widening memory wall" class="pdf-deck__img" loading="lazy" src="images/HC2026.MicronTechnology.RaghuSreeramaneni.v03_p003.png"/></div>
+</figure>
+<figure class="pdf-deck" data-deck="SK hynix">
+<div class="pdf-deck__bar">
+<span class="pdf-deck__name">SK hynix</span>
+<div aria-label="Choose an SK hynix slide" class="pdf-deck__pages" role="group">
+<button aria-pressed="true" data-image="images/HC2026.SK_hynix.Jaesik_FINAL1_p013.png" data-page="13" type="button">13</button>
+<button aria-pressed="false" data-image="images/HC2026.SK_hynix.Jaesik_FINAL1_p014.png" data-page="14" type="button">14</button>
+</div>
 
-        <figure class="pdf-deck" data-deck="SK hynix" data-pdf="pdfs/HC2026.SK hynix.Jaesik_FINAL1.pdf">
-          <div class="pdf-deck__bar">
-            <span class="pdf-deck__name">SK hynix</span>
-            <div class="pdf-deck__pages" role="group" aria-label="Choose an SK hynix slide">
-              <button type="button" data-page="13"  aria-pressed="true">13</button>
-              <button type="button" data-page="14" aria-pressed="false">14</button>
-            </div>
-            <a class="pdf-deck__open" href="pdfs/HC2026.SK%20hynix.Jaesik_FINAL1.pdf#page=13" target="_blank" rel="noopener">open slide&nbsp;&nearr;</a>
-          </div>
-          <div class="pdf-deck__stage">
-            <canvas role="img" aria-label="SK hynix slide 13 showing the hybrid copper bonding process"></canvas>
-            <p class="pdf-deck__status" aria-live="polite">Rendering slide&hellip;</p>
-          </div>
-        </figure>
-
-        <p>
+</div>
+<div class="pdf-deck__stage"><img alt="SK hynix slide 13 showing the hybrid copper bonding process" class="pdf-deck__img" loading="lazy" src="images/HC2026.SK_hynix.Jaesik_FINAL1_p013.png"/></div>
+</figure>
+<p>
           The first architectural response is to turn the HBM base die from a passive
           interface into active logic. Memory vendors are overhauling it across three
           distinct phases
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=2" target="_blank" rel="noopener">[Samsung, 2]</a>
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=25" target="_blank" rel="noopener">[Samsung, 25]</a>.
+          <a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p002.png" rel="noopener" target="_blank">[Samsung, 2]</a>
+<a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p025.png" rel="noopener" target="_blank">[Samsung, 25]</a>.
           In Phase 1, migrating base dies from planar DRAM processes to 4 nm FinFET
           logic replaces standard HBM PHYs with compact Die-to-Die (D2D) interfaces,
           shrinking the PHY area from more than
-          8&nbsp;&times;&nbsp;4 mm<sup>2</sup> to
-          8.5&nbsp;&times;&nbsp;1.5 mm<sup>2</sup> and reducing channel depth from
+          8 × 4 mm<sup>2</sup> to
+          8.5 × 1.5 mm<sup>2</sup> and reducing channel depth from
           5.5 mm to 2.0 mm
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=10" target="_blank" rel="noopener">[Samsung, 10]</a>
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=11" target="_blank" rel="noopener">[Samsung, 11]</a>.
+          <a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p010.png" rel="noopener" target="_blank">[Samsung, 10]</a>
+<a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p011.png" rel="noopener" target="_blank">[Samsung, 11]</a>.
           Offloading the memory controller and integrating SRAM-based cell-repair
           arrays into the base die reclaims host SoC area and enables fine-grained
           defect redirection across channels
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=13" target="_blank" rel="noopener">[Samsung, 13]</a>
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=14" target="_blank" rel="noopener">[Samsung, 14]</a>.
+          <a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p013.png" rel="noopener" target="_blank">[Samsung, 13]</a>
+<a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p014.png" rel="noopener" target="_blank">[Samsung, 14]</a>.
           To dissipate high power densities above 2.0 W/mm<sup>2</sup> in sHBM5, Heat
           Path Blocks (HPBs) provide dummy-silicon thermal conduits, reducing peak
           junction temperatures by more than 35% with greater than 50% PHY coverage
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=12" target="_blank" rel="noopener">[Samsung, 12]</a>.
+          <a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p012.png" rel="noopener" target="_blank">[Samsung, 12]</a>.
         </p>
-
-        <p>
+<p>
           Phase 2 exploits the remaining base-die silicon for on-die telemetry sensors,
           built-in self-test pattern generators (OD-ATE/PGEN), near-memory Processing
           Elements (PEs), and outer-shoreline memory controllers that bypass host PCIe
           channels
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=16" target="_blank" rel="noopener">[Samsung, 16]</a>
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=18" target="_blank" rel="noopener">[Samsung, 18]</a>
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=19" target="_blank" rel="noopener">[Samsung, 19]</a>.
+          <a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p016.png" rel="noopener" target="_blank">[Samsung, 16]</a>
+<a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p018.png" rel="noopener" target="_blank">[Samsung, 18]</a>
+<a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p019.png" rel="noopener" target="_blank">[Samsung, 19]</a>.
           Phase 3 achieves true vertical convergence, or zHBM, through Wafer-on-Wafer
           (WoW) bonding
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=21" target="_blank" rel="noopener">[Samsung, 21]</a>
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=24" target="_blank" rel="noopener">[Samsung, 24]</a>.
+          <a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p021.png" rel="noopener" target="_blank">[Samsung, 21]</a>
+<a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p024.png" rel="noopener" target="_blank">[Samsung, 24]</a>.
           Stacking core DRAM directly over host logic with distributed area I/O
           eliminates SERDES interfaces, reducing I/O power by 70% and increasing
           aggregate DRAM bandwidth by 230%
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=22" target="_blank" rel="noopener">[Samsung, 22]</a>
-          <a class="slide-cite" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=23" target="_blank" rel="noopener">[Samsung, 23]</a>.
+          <a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p022.png" rel="noopener" target="_blank">[Samsung, 22]</a>
+<a class="slide-cite" href="images/HC2026.HBMBaseDie.SangwookHan.v20_p023.png" rel="noopener" target="_blank">[Samsung, 23]</a>.
         </p>
+<figure class="pdf-deck" data-deck="Samsung">
+<div class="pdf-deck__bar">
+<span class="pdf-deck__name">Samsung</span>
+<div aria-label="Choose a Samsung slide" class="pdf-deck__pages" role="group">
+<button aria-pressed="true" data-image="images/HC2026.HBMBaseDie.SangwookHan.v20_p010.png" data-page="10" type="button">10</button>
+<button aria-pressed="false" data-image="images/HC2026.HBMBaseDie.SangwookHan.v20_p023.png" data-page="23" type="button">23</button>
+</div>
 
-        <figure class="pdf-deck" data-deck="Samsung" data-pdf="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf">
-          <div class="pdf-deck__bar">
-            <span class="pdf-deck__name">Samsung</span>
-            <div class="pdf-deck__pages" role="group" aria-label="Choose a Samsung slide">
-              <button type="button" data-page="10" aria-pressed="true">10</button>
-              <button type="button" data-page="23" aria-pressed="false">23</button>
-            </div>
-            <a class="pdf-deck__open" href="pdfs/HC2026.HBMBaseDie.SangwookHan.v20.pdf#page=10" target="_blank" rel="noopener">open slide&nbsp;&nearr;</a>
-          </div>
-          <div class="pdf-deck__stage">
-            <canvas role="img" aria-label="Samsung slide 10 comparing standard and custom HBM base-die floorplans"></canvas>
-            <p class="pdf-deck__status" aria-live="polite">Rendering slide&hellip;</p>
-          </div>
-        </figure>
-
-        <p>
+</div>
+<div class="pdf-deck__stage"><img alt="Samsung slide 10 comparing standard and custom HBM base-die floorplans" class="pdf-deck__img" loading="lazy" src="images/HC2026.HBMBaseDie.SangwookHan.v20_p010.png"/></div>
+</figure>
+<p>
           A second response is monolithic 3D-DRAM. Its commercial realization was
           demonstrated in d-Matrix's Raptor accelerator, which integrates a TSMC N4
-          logic die directly over a 3D-DRAM die using 36 &micro;m-pitch Face-to-Face
+          logic die directly over a 3D-DRAM die using 36 µm-pitch Face-to-Face
           (F2F) microbumps
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=17" target="_blank" rel="noopener">[d-Matrix, 17]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p017.png" rel="noopener" target="_blank">[d-Matrix, 17]</a>.
           Operating across a single-cycle vertical interface at 0.37 pJ/bit, Raptor
           delivers 100 TB/s across an eight-chiplet card, or
-          32.6 GB/s/mm<sup>2</sup>, providing 20&times; higher bandwidth density and
-          13.5&times; lower power per unit bandwidth than HBM4:
+          32.6 GB/s/mm<sup>2</sup>, providing 20× higher bandwidth density and
+          13.5× lower power per unit bandwidth than HBM4:
           2.96 mW/GB/s versus 40.0 mW/GB/s
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=13" target="_blank" rel="noopener">[d-Matrix, 13]</a>
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=28" target="_blank" rel="noopener">[d-Matrix, 28]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p013.png" rel="noopener" target="_blank">[d-Matrix, 13]</a>
+<a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p028.png" rel="noopener" target="_blank">[d-Matrix, 28]</a>.
         </p>
+<figure class="pdf-deck" data-deck="d-Matrix">
+<div class="pdf-deck__bar">
+<span class="pdf-deck__name">d-Matrix</span>
+<div aria-label="Choose a d-Matrix slide" class="pdf-deck__pages" role="group">
+<button aria-pressed="true" data-image="images/hc2026.dmatrix.SudeepBhoja.v3.0_p017.png" data-page="17" type="button">17</button>
+<button aria-pressed="false" data-image="images/hc2026.dmatrix.SudeepBhoja.v3.0_p022.png" data-page="22" type="button">22</button>
+</div>
 
-        <figure class="pdf-deck" data-deck="d-Matrix" data-pdf="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf">
-          <div class="pdf-deck__bar">
-            <span class="pdf-deck__name">d-Matrix</span>
-            <div class="pdf-deck__pages" role="group" aria-label="Choose a d-Matrix slide">
-              <button type="button" data-page="17"  aria-pressed="true">17</button>
-              <button type="button" data-page="22"aria-pressed="false">22</button>
-            </div>
-            <a class="pdf-deck__open" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=17" target="_blank" rel="noopener">open slide&nbsp;&nearr;</a>
-          </div>
-          <div class="pdf-deck__stage">
-            <canvas role="img" aria-label="d-Matrix slide 17 showing Raptor face-to-face 3D-DRAM integration"></canvas>
-            <p class="pdf-deck__status" aria-live="polite">Rendering slide&hellip;</p>
-          </div>
-        </figure>
-
-        <p>
+</div>
+<div class="pdf-deck__stage"><img alt="d-Matrix slide 17 showing Raptor face-to-face 3D-DRAM integration" class="pdf-deck__img" loading="lazy" src="images/hc2026.dmatrix.SudeepBhoja.v3.0_p017.png"/></div>
+</figure>
+<p>
           Direct vertical integration requires resolving three interconnected
           microarchitectural constraints
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=18" target="_blank" rel="noopener">[d-Matrix, 18]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p018.png" rel="noopener" target="_blank">[d-Matrix, 18]</a>.
           The first is bank mapping and Stream Blocking. Tensor engines require
           128-byte flits, but DRAM banks deliver 32 bytes per column access
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=20" target="_blank" rel="noopener">[d-Matrix, 20]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p020.png" rel="noopener" target="_blank">[d-Matrix, 20]</a>.
           After provisioning 72 spare banks for redundancy out of 840 physical banks,
           the remaining 768 active banks yield only three banks per channel across 256
           channels:
           <span class="math">768 / 256 = 3</span>
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=20" target="_blank" rel="noopener">[d-Matrix, 20]</a>.
+<a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p020.png" rel="noopener" target="_blank">[d-Matrix, 20]</a>.
           A standard two-cycle access fetches 192 bytes for a 128-byte request, causing
           a 33% overfetch penalty, or approximately 33 TB/s of lost bandwidth
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=21" target="_blank" rel="noopener">[d-Matrix, 21]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p021.png" rel="noopener" target="_blank">[d-Matrix, 21]</a>.
           Stream Blocking groups three 128-byte flits (384 B) into four 96-byte accesses
           (384 B) through a shared partial-access cycle, achieving 0% overfetch without
           shifting networks
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=22" target="_blank" rel="noopener">[d-Matrix, 22]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p022.png" rel="noopener" target="_blank">[d-Matrix, 22]</a>.
         </p>
-
-        <p>
+<p>
           The second constraint is pinless Data Bus Inversion, implemented as Stream
           Flipping. At 100 TB/s, raw I/O power reaches 296 W:
-          <span class="math">100 TB/s &times; 0.37 pJ/bit</span>
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=23" target="_blank" rel="noopener">[d-Matrix, 23]</a>.
+          <span class="math">100 TB/s × 0.37 pJ/bit</span>
+<a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p023.png" rel="noopener" target="_blank">[d-Matrix, 23]</a>.
           Because single-cycle parallel vertical links lack burst-lookahead windows and
           dedicated DBI pins, Stream Flipping evaluates bit transitions along a
           continuous stream and writes a one-bit inversion tag co-located with paired
           [132, 128] Reed-Solomon ECC metadata
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=24" target="_blank" rel="noopener">[d-Matrix, 24]</a>
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=26" target="_blank" rel="noopener">[d-Matrix, 26]</a>.
+<a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p026.png" rel="noopener" target="_blank">[d-Matrix, 26]</a>.
           This delivers the full 20% dynamic I/O power reduction at an overhead of only
           0.8%
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=24" target="_blank" rel="noopener">[d-Matrix, 24]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p024.png" rel="noopener" target="_blank">[d-Matrix, 24]</a>.
         </p>
-
-        <p>
+<p>
           The third constraint is thermal refresh and fault tolerance. High logic
           activity drives DRAM junction temperature,
-          <span class="math">T<sub>j</sub></span>, to 105&deg;C, dropping cell
-          retention from 32 ms at 85&deg;C to 4 ms, an eightfold refresh rate
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=25" target="_blank" rel="noopener">[d-Matrix, 25]</a>.
+          <span class="math">T<sub>j</sub></span>, to 105°C, dropping cell
+          retention from 32 ms at 85°C to 4 ms, an eightfold refresh rate
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p025.png" rel="noopener" target="_blank">[d-Matrix, 25]</a>.
           Deep banking with 1,366 rows per bank, versus approximately 32K rows in
           commodity DRAM, shortens row sweeps and restricts refresh overhead to less
           than 1.37% of total bandwidth
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=26" target="_blank" rel="noopener">[d-Matrix, 26]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p026.png" rel="noopener" target="_blank">[d-Matrix, 26]</a>.
           A two-level multiplexer network chains spare banks in-line to bypass up to two
           arbitrary faults per channel while maintaining channel symmetry
-          <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=27" target="_blank" rel="noopener">[d-Matrix, 27]</a>.
+          <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p027.png" rel="noopener" target="_blank">[d-Matrix, 27]</a>.
         </p>
-
-        <p>
+<p>
           The quantitative comparison across the resulting memory subsystems is:
         </p>
-
-        <div class="table-wrap memory-table-wrap" role="region" aria-label="Comparison of AI memory subsystems" tabindex="0">
-          <table class="data memory-table">
-            <thead>
-              <tr>
-                <th>Metric</th>
-                <th>On-die SRAM</th>
-                <th>2.5D HBM4 (24/32 Gb)</th>
-                <th>3D-DRAM (Raptor)</th>
-                <th>High-Bandwidth Flash (HBF-G2)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Interconnect topology</td>
-                <td>Monolithic on-die <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=4" target="_blank" rel="noopener">[d-Matrix, 4]</a></td>
-                <td>2.5D silicon interposer <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=5" target="_blank" rel="noopener">[d-Matrix, 5]</a></td>
-                <td>3D Face-to-Face <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=17" target="_blank" rel="noopener">[d-Matrix, 17]</a></td>
-                <td>2.5D / UCIe <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=2" target="_blank" rel="noopener">[OXMIQ, 2]</a></td>
-              </tr>
-              <tr>
-                <td>I/O energy</td>
-                <td>~0.05 pJ/bit <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=8" target="_blank" rel="noopener">[d-Matrix, 8]</a></td>
-                <td>2.0&ndash;3.0 pJ/bit <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=8" target="_blank" rel="noopener">[d-Matrix, 8]</a></td>
-                <td><strong>0.37 pJ/bit</strong> <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=17" target="_blank" rel="noopener">[d-Matrix, 17]</a></td>
-                <td>Interface-bound <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=2" target="_blank" rel="noopener">[OXMIQ, 2]</a></td>
-              </tr>
-              <tr>
-                <td>Bandwidth density</td>
-                <td>Ultra-high (300 TB/s) <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=4" target="_blank" rel="noopener">[d-Matrix, 4]</a></td>
-                <td>1.51&ndash;1.67 GB/s/mm<sup>2</sup> <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=28" target="_blank" rel="noopener">[d-Matrix, 28]</a></td>
-                <td><strong>32.6 GB/s/mm<sup>2</sup></strong> <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=28" target="_blank" rel="noopener">[d-Matrix, 28]</a></td>
-                <td>Low (&alpha; &asymp; 1.5&ndash;3.0) <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=4" target="_blank" rel="noopener">[OXMIQ, 4]</a></td>
-              </tr>
-              <tr>
-                <td>Power metric</td>
-                <td>Lowest (~50 fJ/bit) <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=8" target="_blank" rel="noopener">[d-Matrix, 8]</a></td>
-                <td>40.0 mW/GB/s <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=28" target="_blank" rel="noopener">[d-Matrix, 28]</a></td>
-                <td><strong>2.96 mW/GB/s</strong> <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=28" target="_blank" rel="noopener">[d-Matrix, 28]</a></td>
-                <td>High per GB/s <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=6" target="_blank" rel="noopener">[OXMIQ, 6]</a></td>
-              </tr>
-              <tr>
-                <td>Capacity per unit</td>
-                <td>&le;4 GB per pair <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=4" target="_blank" rel="noopener">[d-Matrix, 4]</a></td>
-                <td>24&ndash;48 GB per stack <a class="slide-cite" href="pdfs/HC2026.MicronTechnology.RaghuSreeramaneni.v03.pdf#page=7" target="_blank" rel="noopener">[Micron, 7]</a></td>
-                <td>32 GB per card <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=12" target="_blank" rel="noopener">[d-Matrix, 12]</a></td>
-                <td>256&ndash;512 GiB per cube <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=2" target="_blank" rel="noopener">[OXMIQ, 2]</a></td>
-              </tr>
-              <tr>
-                <td>Optimal workload regime</td>
-                <td>Speculative draft <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=4" target="_blank" rel="noopener">[d-Matrix, 4]</a></td>
-                <td>Dense prefill <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=5" target="_blank" rel="noopener">[OXMIQ, 5]</a></td>
-                <td>Low-latency decode <a class="slide-cite" href="pdfs/hc2026.dmatrix.SudeepBhoja.v3.0.pdf#page=29" target="_blank" rel="noopener">[d-Matrix, 29]</a></td>
-                <td>Sparse attention / MoE <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=17" target="_blank" rel="noopener">[OXMIQ, 17]</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>
+<div aria-label="Comparison of AI memory subsystems" class="table-wrap memory-table-wrap" role="region" tabindex="0">
+<table class="data memory-table">
+<thead>
+<tr>
+<th>Metric</th>
+<th>On-die SRAM</th>
+<th>2.5D HBM4 (24/32 Gb)</th>
+<th>3D-DRAM (Raptor)</th>
+<th>High-Bandwidth Flash (HBF-G2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interconnect topology</td>
+<td>Monolithic on-die <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p004.png" rel="noopener" target="_blank">[d-Matrix, 4]</a></td>
+<td>2.5D silicon interposer <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p005.png" rel="noopener" target="_blank">[d-Matrix, 5]</a></td>
+<td>3D Face-to-Face <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p017.png" rel="noopener" target="_blank">[d-Matrix, 17]</a></td>
+<td>2.5D / UCIe <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p002.png" rel="noopener" target="_blank">[OXMIQ, 2]</a></td>
+</tr>
+<tr>
+<td>I/O energy</td>
+<td>~0.05 pJ/bit <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p008.png" rel="noopener" target="_blank">[d-Matrix, 8]</a></td>
+<td>2.0–3.0 pJ/bit <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p008.png" rel="noopener" target="_blank">[d-Matrix, 8]</a></td>
+<td><strong>0.37 pJ/bit</strong> <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p017.png" rel="noopener" target="_blank">[d-Matrix, 17]</a></td>
+<td>Interface-bound <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p002.png" rel="noopener" target="_blank">[OXMIQ, 2]</a></td>
+</tr>
+<tr>
+<td>Bandwidth density</td>
+<td>Ultra-high (300 TB/s) <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p004.png" rel="noopener" target="_blank">[d-Matrix, 4]</a></td>
+<td>1.51–1.67 GB/s/mm<sup>2</sup> <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p028.png" rel="noopener" target="_blank">[d-Matrix, 28]</a></td>
+<td><strong>32.6 GB/s/mm<sup>2</sup></strong> <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p028.png" rel="noopener" target="_blank">[d-Matrix, 28]</a></td>
+<td>Low (α ≈ 1.5–3.0) <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p004.png" rel="noopener" target="_blank">[OXMIQ, 4]</a></td>
+</tr>
+<tr>
+<td>Power metric</td>
+<td>Lowest (~50 fJ/bit) <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p008.png" rel="noopener" target="_blank">[d-Matrix, 8]</a></td>
+<td>40.0 mW/GB/s <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p028.png" rel="noopener" target="_blank">[d-Matrix, 28]</a></td>
+<td><strong>2.96 mW/GB/s</strong> <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p028.png" rel="noopener" target="_blank">[d-Matrix, 28]</a></td>
+<td>High per GB/s <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p006.png" rel="noopener" target="_blank">[OXMIQ, 6]</a></td>
+</tr>
+<tr>
+<td>Capacity per unit</td>
+<td>≤4 GB per pair <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p004.png" rel="noopener" target="_blank">[d-Matrix, 4]</a></td>
+<td>24–48 GB per stack <a class="slide-cite" href="images/HC2026.MicronTechnology.RaghuSreeramaneni.v03_p007.png" rel="noopener" target="_blank">[Micron, 7]</a></td>
+<td>32 GB per card <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p012.png" rel="noopener" target="_blank">[d-Matrix, 12]</a></td>
+<td>256–512 GiB per cube <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p002.png" rel="noopener" target="_blank">[OXMIQ, 2]</a></td>
+</tr>
+<tr>
+<td>Optimal workload regime</td>
+<td>Speculative draft <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p004.png" rel="noopener" target="_blank">[d-Matrix, 4]</a></td>
+<td>Dense prefill <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p005.png" rel="noopener" target="_blank">[OXMIQ, 5]</a></td>
+<td>Low-latency decode <a class="slide-cite" href="images/hc2026.dmatrix.SudeepBhoja.v3.0_p029.png" rel="noopener" target="_blank">[d-Matrix, 29]</a></td>
+<td>Sparse attention / MoE <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p017.png" rel="noopener" target="_blank">[OXMIQ, 17]</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
           The final boundary is economic and workload-dependent: HBM versus HBF.
           Architectural modeling from OXMIQ Labs demonstrates that memory provisioning
           is governed by the joint capacity-bandwidth formulation
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=6" target="_blank" rel="noopener">[OXMIQ, 6]</a>:
+          <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p006.png" rel="noopener" target="_blank">[OXMIQ, 6]</a>:
         </p>
-
-        <div class="eq" aria-label="Memory provisioning cost equals beta times the maximum of capacity and interactivity times bytes per step divided by bandwidth density">
-          &Phi;<sub>mem</sub> = &beta; &middot; max(C,&nbsp; I &middot; b / &alpha;)
+<div aria-label="Memory provisioning cost equals beta times the maximum of capacity and interactivity times bytes per step divided by bandwidth density" class="eq">
+          Φ<sub>mem</sub> = β · max(C,  I · b / α)
         </div>
-
-        <p>
-          Here <span class="math">&beta;</span> is cost per capacity
+<p>
+          Here <span class="math">β</span> is cost per capacity
           ($/GB relative to HBF), <span class="math">C</span> is the capacity footprint
           in GB, <span class="math">I</span> is token interactivity in tokens/s/user,
           <span class="math">b</span> is bytes fetched per step, and
-          <span class="math">&alpha;</span> is bandwidth density in GB/s per GB
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=4" target="_blank" rel="noopener">[OXMIQ, 4]</a>
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=6" target="_blank" rel="noopener">[OXMIQ, 6]</a>.
+          <span class="math">α</span> is bandwidth density in GB/s per GB
+          <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p004.png" rel="noopener" target="_blank">[OXMIQ, 4]</a>
+<a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p006.png" rel="noopener" target="_blank">[OXMIQ, 6]</a>.
         </p>
-
-        <p>
+<p>
           While High-Bandwidth Flash, under OCP HBF v0.7.0, provides an
-          8&ndash;16&times; capacity advantage over HBM at iso-cost, its bandwidth
-          density, <span class="math">&alpha;</span>, is 25&times; lower than HBM4
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=2" target="_blank" rel="noopener">[OXMIQ, 2]</a>
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=4" target="_blank" rel="noopener">[OXMIQ, 4]</a>.
+          8–16× capacity advantage over HBM at iso-cost, its bandwidth
+          density, <span class="math">α</span>, is 25× lower than HBM4
+          <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p002.png" rel="noopener" target="_blank">[OXMIQ, 2]</a>
+<a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p004.png" rel="noopener" target="_blank">[OXMIQ, 4]</a>.
           For dense models and high batch sizes above 128, where bandwidth demand
           dominates, all-HBF configurations result in higher cost per token
           ($/M-token) than HBM baselines despite their low nominal silicon cost
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=5" target="_blank" rel="noopener">[OXMIQ, 5]</a>
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=12" target="_blank" rel="noopener">[OXMIQ, 12]</a>.
+          <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p005.png" rel="noopener" target="_blank">[OXMIQ, 5]</a>
+<a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p012.png" rel="noopener" target="_blank">[OXMIQ, 12]</a>.
         </p>
-
-        <p>
+<p>
           HBF is, however, highly effective in large Mixture-of-Experts (MoE) models
           such as Kimi K3 2.8T, where 93% of the parameters, or 1.45 TB, reside in
           routed expert blocks, and in sparse-attention mechanisms
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=17" target="_blank" rel="noopener">[OXMIQ, 17]</a>.
+          <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p017.png" rel="noopener" target="_blank">[OXMIQ, 17]</a>.
           Routed expert access scales non-linearly with batch size:
         </p>
-
-        <div class="eq" aria-label="Effective expert coverage at batch B equals one minus one minus k over N raised to B">
-          &rho;<sub>eff</sub>(B) = 1 &minus; (1 &minus; k/N)<sup>B</sup>
-        </div>
-
-        <p>
+<div aria-label="Effective expert coverage at batch B equals one minus one minus k over N raised to B" class="eq">
+          ρ<sub>eff</sub>(B) = 1 − (1 − k/N)<sup>B</sup>
+</div>
+<p>
           In OXMIQ's model
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=10" target="_blank" rel="noopener">[OXMIQ, 10]</a>,
-          under sparse-attention regimes where only 1&ndash;2% of KV-cache entries are
+          <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p010.png" rel="noopener" target="_blank">[OXMIQ, 10]</a>,
+          under sparse-attention regimes where only 1–2% of KV-cache entries are
           read per step, cold expert weights and dormant KV histories can be stored
           economically in HBF over UCIe links
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=19" target="_blank" rel="noopener">[OXMIQ, 19]</a>.
+          <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p019.png" rel="noopener" target="_blank">[OXMIQ, 19]</a>.
           This hierarchy offloads capacity pressure from host DRAM while preserving
           high-bandwidth HBM and 3D-DRAM for active token generation
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=18" target="_blank" rel="noopener">[OXMIQ, 18]</a>
-          <a class="slide-cite" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=20" target="_blank" rel="noopener">[OXMIQ, 20]</a>.
+          <a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p018.png" rel="noopener" target="_blank">[OXMIQ, 18]</a>
+<a class="slide-cite" href="images/HC2026.OXMIQ.AnuragAgrawal.v03_p020.png" rel="noopener" target="_blank">[OXMIQ, 20]</a>.
         </p>
+<figure class="pdf-deck" data-deck="OXMIQ">
+<div class="pdf-deck__bar">
+<span class="pdf-deck__name">OXMIQ</span>
+<div aria-label="Choose an OXMIQ slide" class="pdf-deck__pages" role="group">
+<button aria-pressed="true" data-image="images/HC2026.OXMIQ.AnuragAgrawal.v03_p004.png" data-page="4" type="button">4</button>
+<button aria-pressed="false" data-image="images/HC2026.OXMIQ.AnuragAgrawal.v03_p010.png" data-page="10" type="button">10</button>
+</div>
 
-        <figure class="pdf-deck" data-deck="OXMIQ" data-pdf="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf">
-          <div class="pdf-deck__bar">
-            <span class="pdf-deck__name">OXMIQ</span>
-            <div class="pdf-deck__pages" role="group" aria-label="Choose an OXMIQ slide">
-              <button type="button" data-page="4"   aria-pressed="true">4</button>
-              <button type="button" data-page="10"  aria-pressed="false">10</button>
-            </div>
-            <a class="pdf-deck__open" href="pdfs/HC2026.OXMIQ.AnuragAgrawal.v03.pdf#page=4" target="_blank" rel="noopener">open slide&nbsp;&nearr;</a>
-          </div>
-          <div class="pdf-deck__stage">
-            <canvas role="img" aria-label="OXMIQ slide 4 showing the beta-alpha memory technology landscape"></canvas>
-            <p class="pdf-deck__status" aria-live="polite">Rendering slide&hellip;</p>
-          </div>
-        </figure>
-
-      <p>
+</div>
+<div class="pdf-deck__stage"><img alt="OXMIQ slide 4 showing the beta-alpha memory technology landscape" class="pdf-deck__img" loading="lazy" src="images/HC2026.OXMIQ.AnuragAgrawal.v03_p004.png"/></div>
+</figure>
+<p>
         The broader lesson from Hot Chips is that the memory problem is increasingly a topology problem, not merely a DRAM technology problem. HBM solved capacity by stacking memory vertically, but still moves data laterally across scarce package beachfront. 3D-DRAM attacks that constraint by moving the interface into the third dimension, while active HBM base dies push computation closer to memory and HBF adds another tier for capacity. Perhaps the next memory hierarchy needs less hierarchy and more geometry.
       </p>
-      </article>
-
-      <footer class="colophon">
+</article>
+<footer class="colophon">
         Last updated <span id="last-updated"></span>
-      </footer>
-    </main>
-
-    <script>
+</footer>
+</main>
+<script>
       (function () {
         const date = new Date(document.lastModified);
         document.getElementById("last-updated").textContent =
@@ -432,115 +388,37 @@
           });
       }());
     </script>
+<script>
+(function () {
+  function setViewer(viewer, button) {
+    const img = viewer.querySelector(".pdf-deck__img");
+    const openLink = viewer.querySelector(".pdf-deck__open");
+    const newSrc = button.dataset.image;
 
-    <script type="module">
-      let pdfjsLib;
+    if (!img || !newSrc) return;
 
-      try {
-        pdfjsLib = await import("./pdf.min.mjs");
-        pdfjsLib.GlobalWorkerOptions.workerSrc =
-          "./pdf.worker.min.mjs";
-      } catch (error) {
-        console.error("PDF.js could not be loaded.", error);
-      }
+    viewer.querySelectorAll(".pdf-deck__pages button").forEach((btn) => {
+      btn.setAttribute("aria-pressed", String(btn === button));
+    });
 
-      function setViewerText(viewer, button) {
-        const pageNumber = button.dataset.page;
-        const pdfPath = viewer.dataset.pdf;
-        const openLink = viewer.querySelector(".pdf-deck__open");
-        const caption = viewer.querySelector("figcaption");
-        const canvas = viewer.querySelector("canvas");
+    img.src = newSrc;
+    if (openLink) openLink.href = newSrc;
+  }
 
-        viewer.querySelectorAll(".pdf-deck__pages button").forEach((item) => {
-          item.setAttribute(
-            "aria-pressed",
-            String(item === button)
-          );
-        });
+  document.querySelectorAll(".pdf-deck").forEach((viewer) => {
+    const buttons = Array.from(viewer.querySelectorAll(".pdf-deck__pages button[data-image]"));
+    if (!buttons.length) return;
 
-        openLink.href = pdfPath + "#page=" + pageNumber;
-      }
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => setViewer(viewer, button));
+    });
 
-      function initialiseViewer(viewer) {
-        const buttons = Array.from(
-          viewer.querySelectorAll(".pdf-deck__pages button")
-        );
-        const stage = viewer.querySelector(".pdf-deck__stage");
-        const canvas = viewer.querySelector("canvas");
-        const status = viewer.querySelector(".pdf-deck__status");
-        const context = canvas.getContext("2d", { alpha: false });
-        const pdfPath = viewer.dataset.pdf;
-        const pdfPromise = pdfjsLib
-          ? pdfjsLib.getDocument(pdfPath).promise
-          : null;
-        let busy = false;
+    const initial =
+      buttons.find((btn) => btn.getAttribute("aria-pressed") === "true") ||
+      buttons[0];
 
-        async function show(button) {
-          setViewerText(viewer, button);
-
-          if (!pdfPromise) {
-            stage.classList.add("has-error");
-            status.textContent = "Preview unavailable. Open the slide instead.";
-            return;
-          }
-
-          if (busy) return;
-          busy = true;
-          buttons.forEach((item) => { item.disabled = true; });
-          stage.classList.remove("is-ready", "has-error");
-          stage.classList.add("is-loading");
-          status.textContent = "Rendering slide\u2026";
-
-          try {
-            const pdf = await pdfPromise;
-            const pageNumber = Number(button.dataset.page);
-
-            if (pageNumber < 1 || pageNumber > pdf.numPages) {
-              throw new Error(
-                "Page " + pageNumber + " is outside this " +
-                pdf.numPages + "-page PDF."
-              );
-            }
-
-            const page = await pdf.getPage(pageNumber);
-            const baseViewport = page.getViewport({ scale: 1 });
-            const renderScale = 1600 / baseViewport.width;
-            const viewport = page.getViewport({ scale: renderScale });
-
-            canvas.width = Math.floor(viewport.width);
-            canvas.height = Math.floor(viewport.height);
-
-            await page.render({
-              canvasContext: context,
-              viewport
-            }).promise;
-
-            stage.classList.remove("is-loading");
-            stage.classList.add("is-ready");
-            status.textContent = "";
-          } catch (error) {
-            console.error("Could not render PDF slide.", error);
-            stage.classList.remove("is-loading");
-            stage.classList.add("has-error");
-            status.textContent = "Preview unavailable. Open the slide instead.";
-          } finally {
-            busy = false;
-            buttons.forEach((item) => { item.disabled = false; });
-          }
-        }
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => show(button));
-        });
-
-        const initial = buttons.find(
-          (button) => button.getAttribute("aria-pressed") === "true"
-        ) || buttons[0];
-
-        show(initial);
-      }
-
-      document.querySelectorAll(".pdf-deck").forEach(initialiseViewer);
-    </script>
-  </body>
+    setViewer(viewer, initial);
+  });
+}());
+</script></body>
 </html>
