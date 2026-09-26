@@ -6,8 +6,12 @@
     <meta name="author" content="Soumil Hooda">
     <meta name="description" content="Soumil Hooda">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css?v=3">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css?v=11">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=2">
+    <link rel="shortcut icon" href="favicon.ico?v=2">
+    <link rel="manifest" href="site.webmanifest?v=2">
   </head>
 
   <body>
@@ -19,10 +23,16 @@
             <p class="name">Soumil Hooda</p>
             <p class="hero-role">Silicon Engineer at Google</p>
 
-            <p class="hero-contact" aria-label="Email addresses">
-              <a class="work-email" href="mailto:soumilhooda@google.com">soumilhooda @ google.com</a><br>
-              <a class="personal-email" href="mailto:hoodasoumil@gmail.com">hoodasoumil <span>@</span> gmail.com</a>
-            </p>
+            <div class="hero-contact" aria-label="Email addresses">
+              <a href="mailto:soumilhooda@google.com">
+                <span class="email-label">Work</span>
+                <span class="email-address">soumilhooda@google.com</span>
+              </a>
+              <a href="mailto:f20202305h@alumni.bits-pilani.ac.in">
+                <span class="email-label">Alumni</span>
+                <span class="email-address">f20202305h@alumni.bits-pilani.ac.in</span>
+              </a>
+            </div>
           </div>
           <div class="portrait">
             <a href="images/SoumilHoodaProfile.jpg">
@@ -32,38 +42,29 @@
         </div>
 
         <p>
-          I graduated in 2025 from BITS Pilani, with a dual degree: a Bachelor of
-          Engineering in Electrical and Electronics, and a Master of Science in Physics.
+          My current work focuses on cache-coherent interconnect design, spanning microarchitecture
+          definition, RTL implementation, clock-tree analysis, and power estimation.
         </p>
 
         <p>
-          During undergrad, I worked on atmospheric water vapor retrieval from satellite occultation
-          data at the Space Applications Centre (ISRO), finger flexion estimation from neural recordings
-          at CSIR-CEERI, and peri-urban area estimation and arrhythmia classification at BITS Pilani.
-          The work was guided by
+          I graduated from BITS Pilani in 2025 with a BE in Electrical and Electronics
+          Engineering and an MSc in Physics. As an undergraduate, I worked on atmospheric
+          water-vapor retrieval from radio-occultation measurements at the Space Applications
+          Centre (ISRO), finger-flexion estimation from neural recordings at CSIR-CEERI,
+          and peri-urban mapping and arrhythmia classification at BITS Pilani. This research
+          was advised by
           <a href="https://www.bits-pilani.ac.in/hyderabad/manik-gupta/" target="_blank" rel="noopener noreferrer">Prof. Manik Gupta</a>,
           <a href="https://sites.google.com/site/rajeshtripathy17" target="_blank" rel="noopener noreferrer">Prof. Rajesh Tripathy</a>, and
           <a href="https://scholar.google.co.in/citations?user=LoA8R0YAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Dr. Satya Prakash Ojha</a>.
         </p>
 
         <p>
-          As part of my undergrad I interned at Texas Instruments and Google. At Texas Instruments, 
-          I worked on developing an assertion-based formal verification IP for a real-time microcontroller platform, 
-          with a focus on reusable, property-driven verification infrastructure. Alongside this, I spent some time
-          exploring whether graph-based representations of finite-state machines could be fed into GNNs
-          to reason about protocol behavior, more out of curiosity than conviction.
-          At Google, I worked on infrastructure for generating
-          and integrating subsystem-level RTL based on architectural configuration. The work touched the
-          full spectrum of auxiliary logic bring-up, covering power intent, clock/reset domain crossing,
-          linting, and register collateral, and gave me a systems-level view of how large SoC blocks are
-          stitched together.
-        </p>
-
-        <p>
-          I now work full-time at Google as a Silicon Engineer, as part of a first-party
-          cache-coherent interconnect design team. At its core, this is the hardware that keeps a chip's processors,
-          memory controllers, and accelerators in agreement about what is in memory. My work spans microarchitecture, RTL implementation, 
-          and power estimation alongside maintaining general design plumbing flows.
+          I previously interned at Google and Texas Instruments. At Google, I developed
+          infrastructure to generate and integrate subsystem-level RTL from architectural
+          configurations, including power intent, clock/reset-domain crossings, linting,
+          and register collateral. At Texas Instruments, I developed reusable, assertion-based
+          formal verification IP for a real-time microcontroller platform and explored graph
+          representations of finite-state machines for GNN-based protocol analysis.
         </p>
 
         <p class="hero-links">
@@ -71,23 +72,28 @@
         </p>
       </header>
 
-      <!-- ---------- NEWS ---------- -->
       <section class="prose reveal">
         <div class="eyebrow"><span class="eyebrow-label">News</span><span class="line"></span></div>
         <ul class="news">
-          <li><span class="date">Aug 2025</span><span class="what">Joining Google as a Silicon Engineer.</span></li>
-          <li><span class="date">Aug 2025</span><span class="what">Graduated with a BE Electrical and Electronics &amp; MSc Physics!</span></li>
-          <li><span class="date">Feb 2025</span><span class="what">New work at IEEE Access out!</span></li>
-          <li><span class="date">Jan 2025</span><span class="what">Joining Google as a Hardware Engineering Intern.</span></li>
-          <li><span class="date">Jul 2024</span><span class="what">Joining Texas Instruments as a Digital Design Intern.</span></li>
-          <li><span class="date">Jan 2024</span><span class="what">New work at IEEE GRSL out!</span></li>
-          <li><span class="date">Nov 2023</span><span class="what">New work at IEEE TGRS out!</span></li>
-          <li><span class="date">Aug 2023</span><span class="what">Ravi Bhushan presented our poster at ACM COMPASS.</span></li>
-          <li><span class="date">Apr 2023</span><span class="what">New work at IEEE IGARSS accepted!</span></li>
+          <li><span class="date">Aug 2026</span><span>Attending Hot Chips 2026 virtually.</span></li>
+          <li><span class="date">Aug 2025</span><span>Joining Google as a Silicon Engineer.</span></li>
+          <li><span class="date">Aug 2025</span><span>Graduated with a BE Electrical and Electronics &amp; MSc Physics!</span></li>
+          <li><span class="date">Feb 2025</span><span>New work at IEEE Access out!</span></li>
+          <li><span class="date">Jan 2025</span><span>Joining Google as a Hardware Engineering Intern.</span></li>
         </ul>
+        <details class="news-archive">
+          <summary>Older news</summary>
+          <ul class="news">
+            <li><span class="date">Jul 2024</span><span>Joining Texas Instruments as a Digital Design Intern.</span></li>
+            <li><span class="date">Jan 2024</span><span>New work at IEEE GRSL out!</span></li>
+            <li><span class="date">Nov 2023</span><span>New work at IEEE TGRS out!</span></li>
+            <li><span class="date">Aug 2023</span><span>Will be a TA for CS F213: Object-Oriented Programming.</span></li>
+            <li><span class="date">Aug 2023</span><span>Our poster was presented at ACM COMPASS.</span></li>
+            <li><span class="date">Apr 2023</span><span>New work at IEEE IGARSS accepted!</span></li>
+          </ul>
+        </details>
       </section>
 
-      <!-- ---------- READS ---------- -->
       <section class="prose reveal">
         <div class="eyebrow"><span class="eyebrow-label">Reads</span><span class="line"></span></div>
         
@@ -95,6 +101,7 @@
           <summary>H2 2026</summary>
           <ul>
             <li><em>Build</em> — Tony Fadell</li>
+            <li><em>The Innovator's Dilemma</em> — Clayton M. Christensen</li>
           </ul>
         </details>
         
@@ -126,66 +133,55 @@
         </details>
       </section>
 
-      <!-- ---------- RESEARCH ---------- -->
       <section class="prose reveal">
         <div class="eyebrow"><span class="eyebrow-label">Research</span><span class="line"></span></div>
 
-        <div class="research-item">
-          <div class="research-fig">
-            <img src="images/SERN-AwGOP.png" alt="SERN-AwGOP figure">
-          </div>
-          <div class="research-body">
-            <a href="https://ieeexplore.ieee.org/abstract/document/10897989/" target="_blank" rel="noopener noreferrer">
-              <span class="papertitle">SERN-AwGOP: Squeeze-and-Excitation Residual Network With an Attention-Weighted Generalized Operational Perceptron for Atrial Fibrillation Detection</span>
-            </a>
-            <p class="authors"><strong>Soumil Hooda*</strong>, Rajesh Kumar Tripathy</p>
-            <p class="venue">IEEE Access · 2025</p>
-            <p class="blurb">SERN-AwGOP detects atrial fibrillation from ECG with high accuracy, robustness to noise, and strong cross-dataset generalization.</p>
-          </div>
-        </div>
-
-        <div class="research-item">
-          <div class="research-fig">
-            <img src="images/PU.png" alt="Peri-urban demarcation figure">
-          </div>
-          <div class="research-body">
-            <a href="https://ieeexplore.ieee.org/abstract/document/10416258/" target="_blank" rel="noopener noreferrer">
-              <span class="papertitle">Supervised Model for Peri-Urban Area Demarcation in Hyderabad, India</span>
-            </a>
-            <p class="authors">Ravi Bhushan, <strong>Soumil Hooda*</strong>, Hiten Vidhani, Manik Gupta, Lavyana Suresh, Timothy Clune</p>
-            <p class="venue">IEEE Geoscience and Remote Sensing Letters · 2024</p>
-            <p class="blurb">RBF-SVM model maps peri-urban expansion near Hyderabad, revealing 108% growth.</p>
-          </div>
-        </div>
-
-        <div class="research-item">
-          <div class="research-fig">
-            <img src="images/WvCOSMIC.png" alt="Water vapor retrieval figure">
-          </div>
-          <div class="research-body">
-            <a href="https://ieeexplore.ieee.org/abstract/document/10312753/" target="_blank" rel="noopener noreferrer">
-              <span class="papertitle">Retrieval of Atmospheric Water Vapor Profiles From COSMIC-2 Radio Occultation Constellation Using Machine Learning</span>
-            </a>
-            <p class="authors"><strong>Soumil Hooda*</strong>, Manik Gupta, Randhir Singh, Satya P. Ojha</p>
-            <p class="venue">IEEE Transactions on Geoscience and Remote Sensing · 2023</p>
-            <p class="blurb">ANN model retrieves atmospheric water vapor from COSMIC-2 data, outperforming existing methods.</p>
-          </div>
+        <div class="publications">
+          <article class="publication-item">
+            <div class="publication-entry">
+              <div class="publication-figure">
+                <img src="images/SERN-AwGOP.png" alt="SERN-AwGOP figure">
+              </div>
+              <p class="publication-citation">
+                <span class="publication-authors"><strong>Soumil Hooda*</strong> and Rajesh Kumar Tripathy.</span>
+                “<span class="papertitle">SERN-AwGOP: Squeeze-and-Excitation Residual Network With an Attention-Weighted Generalized Operational Perceptron for Atrial Fibrillation Detection</span>.”
+                <em class="journal">IEEE Access</em>, 2025.
+                <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10897989/" target="_blank" rel="noopener noreferrer">[paper]</a>
+              </p>
+            </div>
+          </article>
+          <article class="publication-item">
+            <div class="publication-entry">
+              <div class="publication-figure">
+                <img src="images/PU.png" alt="Peri-urban demarcation figure">
+              </div>
+              <p class="publication-citation">
+                <span class="publication-authors">Ravi Bhushan, <strong>Soumil Hooda*</strong>, Hiten Vidhani, Manik Gupta, Lavyana Suresh, and Timothy Clune.</span>
+                “<span class="papertitle">Supervised Model for Peri-Urban Area Demarcation in Hyderabad, India</span>.”
+                <em class="journal">IEEE Geoscience and Remote Sensing Letters</em>, 2024.
+                <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10416258/" target="_blank" rel="noopener noreferrer">[paper]</a>
+              </p>
+            </div>
+          </article>
+          <article class="publication-item">
+            <div class="publication-entry">
+              <div class="publication-figure">
+                <img src="images/WvCOSMIC.png" alt="Water vapor retrieval figure">
+              </div>
+              <p class="publication-citation">
+                <span class="publication-authors"><strong>Soumil Hooda*</strong>, Manik Gupta, Randhir Singh, and Satya P. Ojha.</span>
+                “<span class="papertitle">Retrieval of Atmospheric Water Vapor Profiles From COSMIC-2 Radio Occultation Constellation Using Machine Learning</span>.”
+                <em class="journal">IEEE Transactions on Geoscience and Remote Sensing</em>, 2023.
+                <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10312753/" target="_blank" rel="noopener noreferrer">[paper]</a>
+              </p>
+            </div>
+          </article>
         </div>
       </section>
-
-      <footer class="colophon">
-        Last updated <span id="last-updated"></span>
-      </footer>
 
     </div>
 
     <script>
-      (function () {
-        const d = new Date(document.lastModified);
-        document.getElementById("last-updated").textContent =
-          d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
-      })();
-
       (function () {
         const els = document.querySelectorAll(".reveal");
         if (!("IntersectionObserver" in window)) {
