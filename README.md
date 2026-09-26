@@ -1,2 +1,0 @@
-# Soumil Hooda's Webpage
-
